@@ -1,6 +1,6 @@
 # Lab 2 · interview responses supplied by the user
 
-The user confirmed these answers are real, confirmed consent to publishing anonymous quotes, and supplied October 1, 2 and 3, 2026 as the interview dates. Original participant wording is preserved. Participant labels and asker/logger assignments follow the supplied source. Actual city, course eligibility, separate recording permission, and contemporaneous note-taking details were not supplied.
+The user confirmed these answers are real, confirmed consent to publishing anonymous quotes, and supplied October 1, 2 and 3, 2026 as the interview dates. Original participant wording is preserved. Participant labels and asker/logger assignments follow the supplied source. The user confirmed Tbilisi, outside-course eligibility and permission to take notes for all participants. Separate recording permission and contemporaneous note-taking details were not supplied.
 
 These dates precede the hypothesis commit on October 7. Do not present this as a hypothesis recorded before these interviews.
 
@@ -12,7 +12,7 @@ These dates precede the hypothesis commit on October 7. Do not present this as a
 **Interviewer:** Anano\
 **Note-taker:** Tekla\
 **Consent to participate:** Not separately specified in the user’s confirmation.\
-**Consent to take notes:** Not separately specified in the user’s confirmation.\
+**Consent to take notes:** Yes — user-confirmed October 7, 2026.\
 **Consent to record:** Not specified; do not assume recording permission.\
 **Consent to use anonymized quotes:** Yes — user-confirmed on October 7, 2026, including publication to the project GitHub repository.
 
@@ -68,7 +68,7 @@ These dates precede the hypothesis commit on October 7. Do not present this as a
 **Interviewer:** Anano\
 **Note-taker:** Tekla\
 **Consent to participate:** Not separately specified in the user’s confirmation.\
-**Consent to take notes:** Not separately specified in the user’s confirmation.\
+**Consent to take notes:** Yes — user-confirmed October 7, 2026.\
 **Consent to record:** Not specified; do not assume recording permission.\
 **Consent to use anonymized quotes:** Yes — user-confirmed on October 7, 2026, including publication to the project GitHub repository.
 
@@ -124,7 +124,7 @@ These dates precede the hypothesis commit on October 7. Do not present this as a
 **Interviewer:** Anano\
 **Note-taker:** Tekla\
 **Consent to participate:** Not separately specified in the user’s confirmation.\
-**Consent to take notes:** Not separately specified in the user’s confirmation.\
+**Consent to take notes:** Yes — user-confirmed October 7, 2026.\
 **Consent to record:** Not specified; do not assume recording permission.\
 **Consent to use anonymized quotes:** Yes — user-confirmed on October 7, 2026, including publication to the project GitHub repository.
 
@@ -170,5 +170,3 @@ These dates precede the hypothesis commit on October 7. Do not present this as a
 ### What surprised me
 
 *Reflection supplied with the interview answers:* A same-day customer was willing to simplify the service to fit a confirmed window. Knowing the salon was open did little to resolve whether she could finish before her next commitment.
-
-

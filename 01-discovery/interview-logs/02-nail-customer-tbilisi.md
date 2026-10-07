@@ -3,9 +3,9 @@
 **Date (user-reported):** 2026-10-02 · **Week / lab:** Lab 2
 **Asker:** AK (Anano) · **Logger:** TK (Tekla), as assigned in the supplied interview document.
 **Real or practice:** Real — user confirmed the answers were from actual participants.
-**Consent:** Anonymous quotes and GitHub publication confirmed by the user on 2026-10-07. Separate participation, note-taking and recording permissions were not specified; no recording permission is assumed.
-**Not enrolled in this course:** Not yet confirmed.
-**Context:** A customer seeking specific nail art for a wedding. Source profile describes occasional bookings and portfolio-focused selection; actual city not supplied.
+**Consent:** Anonymous quotes and GitHub publication confirmed by the user on 2026-10-07. Note-taking permission also confirmed by the user. Recording permission was not specified and is not assumed.
+**Not enrolled in this course:** Yes — user confirmed October 7, 2026.
+**Context:** A customer seeking specific nail art for a wedding. Source profile describes occasional bookings and portfolio-focused selection; city: Tbilisi, confirmed by the user October 7.
 **Our prediction:** We are wrong if the customer does not raise waiting to learn whether a suitable appointment time is free as a difficulty when describing their latest short-notice nail-booking attempt, before we ask about availability or waiting.
 
 **Chronology disclosure:** This interview date precedes the hypothesis commit of 2026-10-07. The prediction below was applied retrospectively; this log is not proof of a preregistered test. Preserve the original date and discuss remediation with the instructor. This log was organized from user-supplied answers on 2026-10-07, not claimed to have been written within 24 hours.
@@ -60,6 +60,6 @@
 **Frequency:** Occasional nail-art bookings, as stated in the supplied profile; recurring difficulty not measured.
 **Prediction check (retrospective):** Different difficulty: Q3 centers on knowing which technician can deliver the design. Availability and appointment length arise in the account, but waiting for availability is not stated as the main difficulty.
 **Commitment:** No referral, follow-up agreement or other commitment supplied.
-**Next:** Confirm actual city, course eligibility, consent details, and asker/logger roles; ask a neutral follow-up about recurrence and request evidence of the booking steps if the participant agrees.
+**Next:** Confirm actual asker/logger roles and any recording permission if relevant; ask a neutral follow-up about recurrence and request evidence of the booking steps if the participant agrees.
 
 Source: [user-supplied Lab 2 responses](../../docs/lab2-interview-responses.md). Names are participant labels as provided; no surnames or contact details are included.

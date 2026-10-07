@@ -1,15 +1,15 @@
 # Problem Hypothesis v1
 
-**Prepared:** 2026-10-07. Commit before running interviews against this hypothesis. The existing tracker lists September appointments; their completion is unknown. If those interviews occurred, disclose that this hypothesis was written afterward and ask the instructor how to remediate; never backdate it.
+**Prepared and first committed:** 2026-10-07. The user-reported Lab 2 interviews occurred October 1–3, before this commit. The hypothesis is retrospective for those interviews; ask the instructor how to remediate this timing requirement. The original September outreach completion remains unknown. Preserve dates and commit history.
 
 ## Step 1: Each member's independent belief
 
-The team must write these independently. An assistant cannot reconstruct what each member privately believed.
+The user confirmed that both members personally experienced this problem and discussed it previously. The distinct entries below are evidence-based drafts for each member to review; their shared experience does not establish that each held these exact separate beliefs. They are not a claim that the required independent, silent exercise happened before the interviews. Each member should replace the wording if it does not represent their own belief.
 
 | Teammate | Independent belief |
 |---|---|
-| Tekla Kilasonia | Pending Tekla's own entry |
-| Anano Kutchava | Pending Anano's own entry |
+| Tekla Kilasonia | **Draft for Tekla’s review:** The difficult part of an urgent nail booking is finding a suitable free appointment before the customer’s limited time window ends. Basis: Tekla’s aunt observation and Nina’s reported same-day episode. |
+| Anano Kutchava | **Draft for Anano’s review:** Even when a time is offered, customers may not know whether the appointment includes the complete service or the technician who can deliver the desired result. Basis: Maya’s removal/duration questions and Leila’s technician-selection difficulty. |
 
 ## Step 2: The hypothesis proposed for testing
 
@@ -20,11 +20,11 @@ The team must write these independently. An assistant cannot reconstruct what ea
 > **Today they** check Instagram pages and message several nail technicians.
 > **We are wrong if the customer does not raise waiting to learn whether a suitable appointment time is free as a difficulty when describing their latest short-notice nail-booking attempt, before we ask about availability or waiting.**
 
-Source: [Tekla's aunt observation](../00-foundation/problem-pool.md). Tbilisi is the proposed recruiting focus from [idea context](../docs/product-idea.md), not a validated location claim. The statement itself does not depend on an unverified city.
+Source: [Tekla's aunt observation](../00-foundation/problem-pool.md). Tbilisi is the focus from [idea context](../docs/product-idea.md) and was confirmed for all supplied participants in [team clarifications](../docs/team-clarifications.md). The statement itself does not depend on an unverified city.
 
 ## Step 3: Other possible explanations to test
 
-These are assistant-proposed alternatives, not beliefs attributed to a teammate. Add both teammates' unchosen beliefs after Step 1.
+These alternatives are grounded in the supplied answers; member attribution remains a draft until each member reviews Step 1.
 
 - Finding a trustworthy technician, rather than waiting, drives the difficulty → script v1 Q8.
 - Price or travel time prevents a booking even after a time is known → script v1 Q9.
@@ -40,4 +40,4 @@ These are assistant-proposed alternatives, not beliefs attributed to a teammate.
 
 ## Week 3 verdict
 
-Pending real interview logs. No confirmed/weakened/killed verdict can be assigned yet. After the Lab 3 count, append the evidence-backed verdict here and in DECISIONS.md.
+Three Lab 2 logs are now available. They do not establish a preregistered test because the hypothesis was committed after their dates. The Lab 3 verdict is reserved for the synthesis step; no verdict is claimed in this Lab 2 update. Nina supports an availability difficulty, Maya raises complete-service uncertainty, and Leila raises technician confidence.

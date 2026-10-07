@@ -51,3 +51,21 @@ Green = specific past behavior; amber = needs care; red = leading, pitching, or 
 ## Practice
 
 Each member asks once and logs once in the cross-team practice round. Capture one green moment and one red from the interviewee in `interview-logs/practice/`. Practice logs never count toward the real interview totals.
+
+## Assistant self-review · not the required cross-team audit
+
+This review prepares the script for the external audit; it does not fill the other team's feedback column.
+
+| Q | Assessment | Reason / handling |
+|---|---|---|
+| 1 | Green | Anchors the discussion in a recent decision and concrete context. |
+| 2 | Green | Asks for the actual sequence without suggesting a difficulty. |
+| 3 | Green | Allows “no difficulty” and asks what happened rather than asserting pain. |
+| 4 | Amber | Assumes Q3 identified a difficulty; if it did not, ask “How long did arranging it take, and did it change your plans?” |
+| 5 | Amber | Also assumes a workaround; if none, ask “What did you do next?” Showing steps is optional and private messages stay hidden. |
+| 6 | Green | Invites a second concrete episode, including easier cases. |
+| 7 | Green | Establishes notice for both episodes rather than assuming urgency. |
+| 8 | Green | Investigates actual choice criteria without pitching features. |
+| 9 | Green | Allows no rejected option; asks for the actual reason if one existed. |
+
+Use the conditional alternatives for Q4 and Q5 when Q3 reports no difficulty. For every interview, preserve question order and record what was said before direct follow-ups. Ask the other team to evaluate the script independently and record their actual feedback in the audit table above.

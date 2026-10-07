@@ -24,9 +24,9 @@ Lab 2 files and three user-confirmed real interview logs are published here. See
 
 | Interview | User-reported date | Log |
 |---|---|---|
-| Maya | October 1, 2026 | [01](01-discovery/interview-logs/01-nail-customer-location-unconfirmed.md) |
-| Leila | October 2, 2026 | [02](01-discovery/interview-logs/02-nail-customer-location-unconfirmed.md) |
-| Nina | October 3, 2026 | [03](01-discovery/interview-logs/03-nail-customer-location-unconfirmed.md) |
+| Maya | October 1, 2026 | [01](01-discovery/interview-logs/01-nail-customer-tbilisi.md) |
+| Leila | October 2, 2026 | [02](01-discovery/interview-logs/02-nail-customer-tbilisi.md) |
+| Nina | October 3, 2026 | [03](01-discovery/interview-logs/03-nail-customer-tbilisi.md) |
 
 Lab 3 preparation is on `codex/ieri-discovery-labs`. Reserved semester folders do not indicate completed future labs.
 

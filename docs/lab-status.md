@@ -14,9 +14,9 @@ Course source: Lab-2/README.md, Lab-2/HOMEWORK.md and Lab-2/TEAM-REPO-SETUP.md f
 ## Remaining requirements
 
 - Hypothesis was committed October 7, after all three supplied Lab 2 interview dates. This chronology is disclosed; consult the instructor about remediation. No backdating is performed.
-- Confirm each participant is outside the course, their actual city and interviewer/note-taker roles. Quote-publication consent is confirmed by the user; separate recording permission remains unspecified.
-- Both members enter their independent beliefs. Review the provisional scores and establish five actual reachable participants matching the ICP.
-- Another team audits script v1; fix every red question. Each member performs and logs the cross-team practice round.
+- Tbilisi, outside-course eligibility, note-taking and quote-publication consent are confirmed by the user. Interviewer/note-taker assignments follow the source; actual session times and separate recording permission remain unspecified.
+- Both members review the drafted beliefs and journals. The user confirmed both personally experienced the problem. Five broad nail-booking customers are now identified, but the narrower same-day ICP has only one clear interview match.
+- User reports the external audit and practice happened; supply the actual reviewing team, question feedback, practice dates/participants and green/red moments to complete the records. Assistant self-review is separately labelled.
 - Each member writes their own journal and commits their personal contribution. Tekla's scaffold is not an assistant-written reflection attributed to her.
 - Verify teammate and ZA-KIU collaborator access, repo naming acceptance, and the Teams link post. These external activities are not performed here.
 - Historical outreach dates do not prove that three interviews had confirmed day-and-time bookings at the Lab 2 checkpoint. The supplied interview dates now establish the reported session dates, not missing historical scheduling details.
