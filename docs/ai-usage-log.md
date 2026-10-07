@@ -7,3 +7,5 @@ Wk2–3 preparation (2026-10-07, not a claim of attendance) · AK requested assi
 Wk2–3 preparation (2026-10-07) · AK · Codex · created a participant answer sheet after the user offered to supply real answers · checked questions against script v1 and included consent, exact quotes, prompting order, chronology, and team inputs; awaiting real answers.
 
 Wk2–3 preparation (2026-10-07) · AK · Codex · recorded the user-confirmed customer nail-booking focus in the pick and related documents · left scoring gaps, five-person reach, private teammate beliefs and research outcomes unresolved.
+
+Wk2–3 preparation (2026-10-07) · AK · Codex · removed fictional/simulation labels from six supplied interview responses after the user confirmed the answers are real · preserved participant answers verbatim and retained proposed dates and uncollected consent as unresolved metadata; saved as docs/interview-responses.md.
