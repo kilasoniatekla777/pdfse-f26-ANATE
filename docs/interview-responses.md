@@ -1,12 +1,12 @@
 # Six salon booking interviews
 
-**Research note:** The user confirmed on October 7, 2026 that these are real participant answers entered into an interview template. The responses explore how customers choose beauty services and arrange appointments. Dates below remain proposed dates from the supplied template; actual session dates still need confirmation. The user confirmed on October 7, 2026 that participants consented to publishing anonymous quotes and approved uploading this document to the project GitHub repository.
+**Research note:** The user confirmed on October 7, 2026 that these are real participant answers entered into an interview template. The responses explore how customers choose beauty services and arrange appointments. The user supplied the session dates below on October 7, 2026. October 1, 2, 3, 6 and 7 are recorded as user-reported interview dates. October 8 is a future date as of this update, so interview 6 remains scheduled rather than recorded as completed. The user confirmed on October 7, 2026 that participants consented to publishing anonymous quotes and approved uploading this document to the project GitHub repository.
 
-## Proposed schedule for new interviews
+## Interview dates supplied by the user
 
-These are proposed interview dates, not a record of completed sessions. Keep the dates below when planning; record the actual date if a session is moved.
+Dates supplied by the user: Lab 2 — October 1, 2 and 3, 2026; Lab 3 — October 6, 7 and 8, 2026. The last date is upcoming as of October 7. The cumulative column indicates the planned sequence, not a verified count of completed, qualifying logs.
 
-| Interview | Lab | Proposed interview date | Participant | Cumulative total |
+| Interview | Lab | Interview date (user-supplied) | Participant | Cumulative total |
 |---|---|---|---|---|
 | 1 | Lab 2 | October 1, 2026 | Maya | 1 |
 | 2 | Lab 2 | October 2, 2026 | Leila | 2 |
@@ -27,9 +27,9 @@ Names below are participant labels supplied with the responses. Anano is assigne
 
 ## Participant 1: Maya — the busy professional
 
-**Interview date (proposed):** October 1, 2026  
+**Interview date (user-reported):** October 1, 2026  
 **Lab:** Lab 2  
-**Session status:** Real answers and consent to publishing anonymous quotes confirmed by the user; actual interview date pending confirmation.  
+**Session status:** Real answers, interview date and consent to publishing anonymous quotes confirmed by the user.  
 **Interviewer:** Anano  
 **Note-taker:** Tekla  
 **Consent to participate:** Not separately specified in the user’s confirmation.  
@@ -83,9 +83,9 @@ Names below are participant labels supplied with the responses. Anano is assigne
 
 ## Participant 2: Leila — the design-focused customer
 
-**Interview date (proposed):** October 2, 2026  
+**Interview date (user-reported):** October 2, 2026  
 **Lab:** Lab 2  
-**Session status:** Real answers and consent to publishing anonymous quotes confirmed by the user; actual interview date pending confirmation.  
+**Session status:** Real answers, interview date and consent to publishing anonymous quotes confirmed by the user.  
 **Interviewer:** Anano  
 **Note-taker:** Tekla  
 **Consent to participate:** Not separately specified in the user’s confirmation.  
@@ -139,9 +139,9 @@ Names below are participant labels supplied with the responses. Anano is assigne
 
 ## Participant 3: Nina — the last-minute booker
 
-**Interview date (proposed):** October 3, 2026  
+**Interview date (user-reported):** October 3, 2026  
 **Lab:** Lab 2  
-**Session status:** Real answers and consent to publishing anonymous quotes confirmed by the user; actual interview date pending confirmation.  
+**Session status:** Real answers, interview date and consent to publishing anonymous quotes confirmed by the user.  
 **Interviewer:** Anano  
 **Note-taker:** Tekla  
 **Consent to participate:** Not separately specified in the user’s confirmation.  
@@ -195,9 +195,9 @@ Names below are participant labels supplied with the responses. Anano is assigne
 
 ## Participant 4: Sofia — the cautious first-time customer
 
-**Interview date (proposed):** October 6, 2026  
+**Interview date (user-reported):** October 6, 2026  
 **Lab:** Lab 3  
-**Session status:** Real answers and consent to publishing anonymous quotes confirmed by the user; actual interview date pending confirmation.  
+**Session status:** Real answers, interview date and consent to publishing anonymous quotes confirmed by the user.  
 **Interviewer:** Tekla  
 **Note-taker:** Anano  
 **Consent to participate:** Not separately specified in the user’s confirmation.  
@@ -251,9 +251,9 @@ Names below are participant labels supplied with the responses. Anano is assigne
 
 ## Participant 5: Elena — the loyal regular
 
-**Interview date (proposed):** October 7, 2026  
+**Interview date (user-reported):** October 7, 2026  
 **Lab:** Lab 3  
-**Session status:** Real answers and consent to publishing anonymous quotes confirmed by the user; actual interview date pending confirmation.  
+**Session status:** Real answers, interview date and consent to publishing anonymous quotes confirmed by the user.  
 **Interviewer:** Tekla  
 **Note-taker:** Anano  
 **Consent to participate:** Not separately specified in the user’s confirmation.  
@@ -307,9 +307,9 @@ Names below are participant labels supplied with the responses. Anano is assigne
 
 ## Participant 6: Amara — the budget-conscious group organizer
 
-**Interview date (proposed):** October 8, 2026  
+**Interview date (scheduled):** October 8, 2026  
 **Lab:** Lab 3  
-**Session status:** Real answers and consent to publishing anonymous quotes confirmed by the user; actual interview date pending confirmation.  
+**Session status:** Scheduled for October 8, 2026, which is upcoming as of this update. Answers and anonymous-quote consent supplied by the user; session completion is not yet recorded.  
 **Interviewer:** Tekla  
 **Note-taker:** Anano  
 **Consent to participate:** Not separately specified in the user’s confirmation.  

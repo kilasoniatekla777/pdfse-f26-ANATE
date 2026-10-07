@@ -11,3 +11,5 @@ Wk2–3 preparation (2026-10-07) · AK · Codex · recorded the user-confirmed c
 Wk2–3 preparation (2026-10-07) · AK · Codex · removed fictional/simulation labels from six supplied interview responses after the user confirmed the answers are real · preserved participant answers verbatim and retained proposed dates and uncollected consent as unresolved metadata; saved as docs/interview-responses.md.
 
 Wk2–3 preparation (2026-10-07) · AK · Codex · recorded the user’s confirmation of participant consent for anonymous-quote publication and approval to upload docs/interview-responses.md to GitHub · limited the confirmation to publication consent; actual interview dates and separate recording permissions remain unspecified.
+
+Wk2–3 preparation (2026-10-07) · AK · Codex · recorded user-supplied interview dates: Lab 2 October 1–3; Lab 3 October 6–8 · kept the October 8 session scheduled because it is a future date as of the update; did not alter the hypothesis commit date or participant answers.
