@@ -1,6 +1,6 @@
 # Six salon booking interviews
 
-**Research note:** The user confirmed on October 7, 2026 that these are real participant answers entered into an interview template. The responses explore how customers choose beauty services and arrange appointments. Dates below remain proposed dates from the supplied template; actual session dates and consent details still need confirmation.
+**Research note:** The user confirmed on October 7, 2026 that these are real participant answers entered into an interview template. The responses explore how customers choose beauty services and arrange appointments. Dates below remain proposed dates from the supplied template; actual session dates still need confirmation. The user confirmed on October 7, 2026 that participants consented to publishing anonymous quotes and approved uploading this document to the project GitHub repository.
 
 ## Proposed schedule for new interviews
 
@@ -23,19 +23,19 @@ Ask permission to participate and to take notes. Ask separately for permission t
 
 **Do not pitch IERI or describe its features before asking the experience questions.** Complete all nine questions and neutral follow-ups first. If concept feedback is needed afterward, ask whether the participant is willing to discuss IERI and keep that feedback separate from the experience interview.
 
-Names below are participant labels supplied with the responses. Anano is assigned as interviewer and Tekla as note-taker for interviews 1–3; Tekla is assigned as interviewer and Anano as note-taker for interviews 4–6. Consent is listed as uncollected in the supplied template; update each entry with what was actually obtained.
+Names below are participant labels supplied with the responses. Anano is assigned as interviewer and Tekla as note-taker for interviews 1–3; Tekla is assigned as interviewer and Anano as note-taker for interviews 4–6. The user confirmed consent to publishing anonymous quotes for all six participants on October 7, 2026. Separate participation, note-taking and recording permissions were not specified in that confirmation.
 
 ## Participant 1: Maya — the busy professional
 
 **Interview date (proposed):** October 1, 2026  
 **Lab:** Lab 2  
-**Session status:** Real answers, as confirmed by the user; actual interview date and consent details pending confirmation.  
+**Session status:** Real answers and consent to publishing anonymous quotes confirmed by the user; actual interview date pending confirmation.  
 **Interviewer:** Anano  
 **Note-taker:** Tekla  
-**Consent to participate:** Not collected — confirm before the actual interview.  
-**Consent to take notes:** Not collected.  
-**Consent to record:** Not collected; request separately if recording.  
-**Consent to use anonymized quotes:** Not collected.
+**Consent to participate:** Not separately specified in the user’s confirmation.  
+**Consent to take notes:** Not separately specified in the user’s confirmation.  
+**Consent to record:** Not specified; do not assume recording permission.  
+**Consent to use anonymized quotes:** Yes — user-confirmed on October 7, 2026, including publication to the project GitHub repository.
 
 **Profile:** 29, project manager. Gets gel manicures roughly every three weeks. Values predictable timing and usually books around work.
 
@@ -85,13 +85,13 @@ Names below are participant labels supplied with the responses. Anano is assigne
 
 **Interview date (proposed):** October 2, 2026  
 **Lab:** Lab 2  
-**Session status:** Real answers, as confirmed by the user; actual interview date and consent details pending confirmation.  
+**Session status:** Real answers and consent to publishing anonymous quotes confirmed by the user; actual interview date pending confirmation.  
 **Interviewer:** Anano  
 **Note-taker:** Tekla  
-**Consent to participate:** Not collected — confirm before the actual interview.  
-**Consent to take notes:** Not collected.  
-**Consent to record:** Not collected; request separately if recording.  
-**Consent to use anonymized quotes:** Not collected.
+**Consent to participate:** Not separately specified in the user’s confirmation.  
+**Consent to take notes:** Not separately specified in the user’s confirmation.  
+**Consent to record:** Not specified; do not assume recording permission.  
+**Consent to use anonymized quotes:** Yes — user-confirmed on October 7, 2026, including publication to the project GitHub repository.
 
 **Profile:** 24, freelance illustrator. Books occasionally for specific nail art. Prioritizes a technician's portfolio over salon branding.
 
@@ -141,13 +141,13 @@ Names below are participant labels supplied with the responses. Anano is assigne
 
 **Interview date (proposed):** October 3, 2026  
 **Lab:** Lab 2  
-**Session status:** Real answers, as confirmed by the user; actual interview date and consent details pending confirmation.  
+**Session status:** Real answers and consent to publishing anonymous quotes confirmed by the user; actual interview date pending confirmation.  
 **Interviewer:** Anano  
 **Note-taker:** Tekla  
-**Consent to participate:** Not collected — confirm before the actual interview.  
-**Consent to take notes:** Not collected.  
-**Consent to record:** Not collected; request separately if recording.  
-**Consent to use anonymized quotes:** Not collected.
+**Consent to participate:** Not separately specified in the user’s confirmation.  
+**Consent to take notes:** Not separately specified in the user’s confirmation.  
+**Consent to record:** Not specified; do not assume recording permission.  
+**Consent to use anonymized quotes:** Yes — user-confirmed on October 7, 2026, including publication to the project GitHub repository.
 
 **Profile:** 32, hospitality supervisor. Has changing shifts and books infrequently. Values nearby availability and fast confirmation.
 
@@ -197,13 +197,13 @@ Names below are participant labels supplied with the responses. Anano is assigne
 
 **Interview date (proposed):** October 6, 2026  
 **Lab:** Lab 3  
-**Session status:** Real answers, as confirmed by the user; actual interview date and consent details pending confirmation.  
+**Session status:** Real answers and consent to publishing anonymous quotes confirmed by the user; actual interview date pending confirmation.  
 **Interviewer:** Tekla  
 **Note-taker:** Anano  
-**Consent to participate:** Not collected — confirm before the actual interview.  
-**Consent to take notes:** Not collected.  
-**Consent to record:** Not collected; request separately if recording.  
-**Consent to use anonymized quotes:** Not collected.
+**Consent to participate:** Not separately specified in the user’s confirmation.  
+**Consent to take notes:** Not separately specified in the user’s confirmation.  
+**Consent to record:** Not specified; do not assume recording permission.  
+**Consent to use anonymized quotes:** Yes — user-confirmed on October 7, 2026, including publication to the project GitHub repository.
 
 **Profile:** 38, teacher. Recently moved to a new neighborhood. Has had a painful cuticle treatment before and wants confidence in hygiene and technique.
 
@@ -253,13 +253,13 @@ Names below are participant labels supplied with the responses. Anano is assigne
 
 **Interview date (proposed):** October 7, 2026  
 **Lab:** Lab 3  
-**Session status:** Real answers, as confirmed by the user; actual interview date and consent details pending confirmation.  
+**Session status:** Real answers and consent to publishing anonymous quotes confirmed by the user; actual interview date pending confirmation.  
 **Interviewer:** Tekla  
 **Note-taker:** Anano  
-**Consent to participate:** Not collected — confirm before the actual interview.  
-**Consent to take notes:** Not collected.  
-**Consent to record:** Not collected; request separately if recording.  
-**Consent to use anonymized quotes:** Not collected.
+**Consent to participate:** Not separately specified in the user’s confirmation.  
+**Consent to take notes:** Not separately specified in the user’s confirmation.  
+**Consent to record:** Not specified; do not assume recording permission.  
+**Consent to use anonymized quotes:** Yes — user-confirmed on October 7, 2026, including publication to the project GitHub repository.
 
 **Profile:** 45, small business owner. Sees the same nail technician every month. Values continuity and easy rescheduling more than discovery.
 
@@ -309,13 +309,13 @@ Names below are participant labels supplied with the responses. Anano is assigne
 
 **Interview date (proposed):** October 8, 2026  
 **Lab:** Lab 3  
-**Session status:** Real answers, as confirmed by the user; actual interview date and consent details pending confirmation.  
+**Session status:** Real answers and consent to publishing anonymous quotes confirmed by the user; actual interview date pending confirmation.  
 **Interviewer:** Tekla  
 **Note-taker:** Anano  
-**Consent to participate:** Not collected — confirm before the actual interview.  
-**Consent to take notes:** Not collected.  
-**Consent to record:** Not collected; request separately if recording.  
-**Consent to use anonymized quotes:** Not collected.
+**Consent to participate:** Not separately specified in the user’s confirmation.  
+**Consent to take notes:** Not separately specified in the user’s confirmation.  
+**Consent to record:** Not specified; do not assume recording permission.  
+**Consent to use anonymized quotes:** Yes — user-confirmed on October 7, 2026, including publication to the project GitHub repository.
 
 **Profile:** 21, university student. Books for occasional treats. Recently organized appointments for herself and two friends before a birthday dinner.
 

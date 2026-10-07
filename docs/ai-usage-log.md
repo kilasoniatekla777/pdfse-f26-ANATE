@@ -9,3 +9,5 @@ Wk2–3 preparation (2026-10-07) · AK · Codex · created a participant answer 
 Wk2–3 preparation (2026-10-07) · AK · Codex · recorded the user-confirmed customer nail-booking focus in the pick and related documents · left scoring gaps, five-person reach, private teammate beliefs and research outcomes unresolved.
 
 Wk2–3 preparation (2026-10-07) · AK · Codex · removed fictional/simulation labels from six supplied interview responses after the user confirmed the answers are real · preserved participant answers verbatim and retained proposed dates and uncollected consent as unresolved metadata; saved as docs/interview-responses.md.
+
+Wk2–3 preparation (2026-10-07) · AK · Codex · recorded the user’s confirmation of participant consent for anonymous-quote publication and approval to upload docs/interview-responses.md to GitHub · limited the confirmation to publication consent; actual interview dates and separate recording permissions remain unspecified.
