@@ -20,8 +20,8 @@ Course source: [PDFSE-F26](https://github.com/ZA-KIU-Classroom/PDFSE-F26), commi
 |---|---|
 | README, ignore rules, semester folders, AI usage log | Prepared. |
 | Repository name convention | Existing `pdfse-f26-ANATE` has uppercase team suffix; owner should verify instructor acceptance or rename to lowercase if required. No remote rename made. |
-| Team and ZA-KIU access | Not verified: local GitHub CLI authentication is invalid. Owner must check collaborators and pending invites. |
-| Every member's own first commit | Baseline history has Tekla's commits only. Anano's local contribution is prepared; publishing still required. Tekla's journal must be authored/committed by Tekla, not impersonated. |
+| Team and ZA-KIU access | Not verified: the initial CLI collaborator check failed. Git branch publishing succeeded; owner still needs to check collaborators and pending invites. |
+| Every member's own first commit | Baseline history has Tekla's commits only. Anano's AI-assisted preparation is committed and published on `codex/ieri-discovery-labs`. Tekla's journal must be authored/committed by Tekla, not impersonated. |
 | Shortlist, Four Filters, runner-up, first decision | Prepared as provisional scores with evidence and explicit gaps. User confirmed customer nail-booking scope; score review and five reachable participants remain. |
 | Person-shaped ICP | Prepared; geography, five actual reachable people and later log-backed details remain. |
 | Six-slot hypothesis | Prepared. Both members' independent beliefs remain. Commit before new real interviews; September appointments may make retrospective disclosure necessary. |
@@ -46,7 +46,7 @@ Course source: [PDFSE-F26](https://github.com/ZA-KIU-Classroom/PDFSE-F26), commi
 
 1. Review the scores, ICP and hypothesis for the user-confirmed customer nail-booking focus. Each member writes their independent belief and journal.
 2. Confirm whether September interviews happened. If yes, recover real notes without rewriting history; discuss late hypothesis timing with the instructor. If not, commit the hypothesis before new interviews.
-3. Resolve GitHub authentication, verify collaborators, and publish the branch. Each member commits their own contribution. Post the repo link yourselves in the correct Teams group.
+3. Review the published `codex/ieri-discovery-labs` branch and verify collaborators. Each member commits their own contribution. Post the repo link yourselves in the correct Teams group.
 4. Confirm five eligible reachable people and book at least three with actual day and time. Contact details stay in team chat.
 5. Get the cross-team script audit and run practice. Use docs/interview-log-template.md for actual notes; practice files go in the practice subfolder.
 6. Run and log three real interviews, then audit them. Continue to six by Week 4, swapping asker/logger duties.
@@ -60,3 +60,7 @@ Contract: prepared, team review required. ICP: lacks three log-backed details. L
 ## Source inconsistencies
 
 Lab 2 links a root TEAM-REPO-SETUP.md that actually lives under Lab-2 in the current checkout. Lab 3 similarly references the rubric at the root, but it lives under Lab-3. This audit uses the actual files. Week labels in Lab 1 and the overview also differ; deadline text is relative to the team's lab schedule, so no exact deadline has been invented.
+
+## Publication
+
+Prepared documents were pushed to `codex/ieri-discovery-labs` in the team repository on 2026-10-07. Main remains at the original baseline; review and merge the branch when the team accepts the preparation. No collaborator invitations, Teams posts, milestone tags or submissions were made.
