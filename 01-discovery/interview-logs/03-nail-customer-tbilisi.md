@@ -49,7 +49,7 @@
 
 3. “I rejected the walk-in suggestion because I couldn't risk waiting. A salon across town had space, but the travel would use up too much of my afternoon.”
 
-### Surprise reflection supplied with the answers
+### Surprise ★ · supplied reflection
 
 *Reflection supplied with the interview answers:* A same-day customer was willing to simplify the service to fit a confirmed window. Knowing the salon was open did little to resolve whether she could finish before her next commitment.
 

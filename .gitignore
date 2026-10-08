@@ -14,3 +14,6 @@ coverage/
 .env
 .env.*
 !.env.example
+
+# Local completion checklist
+/WHAT-WE-LACK-🧯🧯🧯🧯.md

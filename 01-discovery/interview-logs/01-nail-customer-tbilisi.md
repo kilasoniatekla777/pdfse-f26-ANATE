@@ -49,7 +49,7 @@
 
 3. “I rejected the daytime appointment because I'd have to move a meeting. Another salon had a later opening, but it was too far away to reach comfortably after work.”
 
-### Surprise reflection supplied with the answers
+### Surprise ★ · supplied reflection
 
 *Reflection supplied with the interview answers:* The uncertainty lasted much longer than the active booking work: ten minutes of messaging held up dinner planning for a day. The missing service-duration detail mattered as much as securing a slot.
 

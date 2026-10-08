@@ -49,7 +49,7 @@
 
 3. “One artist was outside my budget. I ruled out another salon because they couldn't tell me who would do my nails. I wasn't comfortable paying for detailed art without seeing that person's work.”
 
-### Surprise reflection supplied with the answers
+### Surprise ★ · supplied reflection
 
 *Reflection supplied with the interview answers:* Having two weeks of notice did not make the booking easy. Confidence in the specific technician and whether the design fit the appointment mattered more than general salon availability.
 

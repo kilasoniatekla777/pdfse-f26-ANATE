@@ -21,4 +21,8 @@ Course source: Lab-2/README.md, Lab-2/HOMEWORK.md and Lab-2/TEAM-REPO-SETUP.md f
 - Verify teammate and ZA-KIU collaborator access, repo naming acceptance, and the Teams link post. These external activities are not performed here.
 - Historical outreach dates do not prove that three interviews had confirmed day-and-time bookings at the Lab 2 checkpoint. The supplied interview dates now establish the reported session dates, not missing historical scheduling details.
 
-The files and interviews are published for review; Lab 2 is not represented as fully compliant while these items remain. Lab 3 synthesis and interview material are on the separate discovery-preparation branch.
+The files and interviews are published for review; Lab 2 is not represented as fully compliant while these items remain. Lab 3 synthesis and all six logs are now published on main.
+
+## Lab 3 · October 8 update
+
+Six supplied interview logs now contain consent, exact excerpts and surprise reflections. The affinity map indexes every numbered answer (54 quote IDs) and four multi-interview patterns. Patterns analysis provides evidence-bounded why chains and a retrospective prediction count. The weakened verdict is appended to DECISIONS.md and the hypothesis, and script v2 traces additions to repeated supplied surprises. These are assistant-prepared interpretations for team review; previously documented timing and external activity gaps remain.

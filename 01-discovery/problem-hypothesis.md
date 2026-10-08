@@ -40,4 +40,6 @@ These alternatives are grounded in the supplied answers; member attribution rema
 
 ## Week 3 verdict
 
-Three Lab 2 logs are now available. They do not establish a preregistered test because the hypothesis was committed after their dates. The Lab 3 verdict is reserved for the synthesis step; no verdict is claimed in this Lab 2 update. Nina supports an availability difficulty, Maya raises complete-service uncertainty, and Leila raises technician confidence.
+**Retrospective assessment:** weakened. One clear availability case (03), alongside complete-service uncertainty (01, 06), technician confidence (02), trust (04), and rescheduling inconsistency (05). Interpret the sample cautiously because most participants were not describing same-day booking. See [the count and analysis](synthesis/patterns-analysis.md).
+
+Week 3 verdict: weakened. Evidence: logs 01, 02, 03, 04, 05, 06. See DECISIONS.md.
