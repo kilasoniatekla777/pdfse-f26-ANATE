@@ -27,3 +27,5 @@ Wk4 (2026-10-16) · TK · Claude Code · drafted members/Kilasoniatekla777/hw1.m
 Wk4 (2026-10-16) · TK · Claude Code · drafted 01-discovery/problem-statement.md, 01-discovery/competitive-landscape-seed.md and the Wk4 DECISIONS.md line from logs 01–06 and patterns-analysis P1 · every quote checked verbatim against the logs and every claim tied to log numbers; nothing from web search; team review needed before tagging m1-discovery.
 
 Wk4 (2026-10-16) · TK · Claude Code · drafted 02-design/prototype-plan.md from the problem statement, competitive landscape and logs 01–06 · quotes checked against logs; testers listed but not yet contacted; team to review before Lab 5.
+
+Wk4 (2026-10-16) · TK · Claude Code · rewrote 02-design/prototype-plan.md around the existing ICP v1 (same-day customer) at the team's request · quotes checked against logs; testers not yet contacted; team to review before Lab 5.
