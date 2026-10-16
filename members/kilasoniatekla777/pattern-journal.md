@@ -18,10 +18,10 @@ Decision under review: [initial customer nail-booking choice](../../DECISIONS.md
 
 **Personal reflection still needed:** Tekla should add one concrete example of agency beyond discovery/delivery and explain in her own words what surprised her while taking notes. She should commit her own completed journal from her own account.
 
-## Week 3
+## Week 3 · Kill your favorite idea
 
-Reserved for actual work and personal reflection during Week 3; not filled in advance.
+I asked in interviews 04, 05 and 06. None of the three raised waiting for a free time as their difficulty. They raised trust in a new salon, a conflicting reminder, and unclear extras on a group booking. Those answers are half the evidence behind our "weakened" verdict on the waiting-for-availability prediction. [04](../../01-discovery/interview-logs/04-nail-customer-tbilisi.md), [05](../../01-discovery/interview-logs/05-nail-customer-tbilisi.md), [06](../../01-discovery/interview-logs/06-nail-customer-tbilisi.md), [patterns analysis](../../01-discovery/synthesis/patterns-analysis.md), `DECISIONS.md` line 2 Switching from note-taker to asker meant I heard the counterexamples to our prediction first-hand instead of reading them afterwards.
 
-## Week 4
+## Week 4 · The prototype is the conversation
 
-Reserved for actual work and personal reflection during Week 4. Homework 1 needs a personal interview index and at least two conducted interviews per member. The first three supplied logs list AK asking and TK logging, so they do not establish two conducted interviews for Tekla.
+My delivery role this week is getting Milestone 1 tagged and our submissions in. So far I have put my homework file into the repo ([786c9fc](https://github.com/kilasoniatekla777/pdfse-f26-ANATE/commit/786c9fc)) and restored our pattern journals, which had been deleted by accident before anyone committed. Our problem statement and prototype plan are still to be written. Our strongest pattern (P1, logs 01, 02, 03 and 06) points the prototype at the moment a customer learns what is included and when the whole service will finish, not at finding a free slot. [patterns analysis](../../01-discovery/synthesis/patterns-analysis.md)
