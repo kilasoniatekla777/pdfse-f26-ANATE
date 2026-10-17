@@ -39,3 +39,24 @@ AUTHOR: Anano Kutchava
 WHO I watched: Elene, my friend who was searching for a family doctor.
 STRUGGLE I saw: Elene searched for a family doctor and contacted different clinics to find an available appointment. The appointments she found were often several weeks away, so she had to keep searching and contacting other doctors and clinics instead of getting an appointment when she needed one.
 COST I can name: Elene had to wait several weeks for an available family-doctor appointment and spent additional time searching for earlier availability.
+
+
+
+## Guja Tsitaishvili · late addition, 2026-10-17
+
+Added in Week 4 after joining the team. These are observations from before today, written down late.
+
+AUTHOR: Guja Tsitaishvili
+WHO I watched: My grandmother Tamari, looking for a doctor while she had the flu.
+STRUGGLE I saw: She wanted a doctor who was good at her specific health problem, but had no reliable way to find one. There was no trusted source or network to tell her which doctor was right for her condition, so she had to ask around and guess.
+COST I can name: About a day and a half of phone calls before she found a doctor.
+
+AUTHOR: Guja Tsitaishvili
+WHO I watched: My friend Dito, looking for his first backend programming job on LinkedIn.
+STRUGGLE I saw: He applied to about 200 positions and was rejected by all of them. He bought online courses to improve his backend skills, but employers still did not contact him because he had no work experience.
+COST I can name: About 200 applications with no offers, 2,400 GEL spent on courses, and two months of searching.
+
+AUTHOR: Guja Tsitaishvili
+WHO I watched: My friend Kato, a software developer whose team shrank after AI tools took over much of its work.
+STRUGGLE I saw: Kato told me that as AI took over more of the team's tasks, many colleagues were laid off. Kato now works mostly alone and lost the everyday social side of work, even simple things like asking a colleague for help with a problem. The work became boring and lonely.
+COST I can name: Five colleagues were laid off. Kato now works quietly alone all day and ends the day smoking cigarettes at night.

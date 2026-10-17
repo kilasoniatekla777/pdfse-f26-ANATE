@@ -16,8 +16,9 @@ Accountabilities below say who makes sure something happens. They do not say who
 | --------------- | ----------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------- |
 | Tekla Kilasonia | @Kilasoniatekla777  | Discovery: interview quality, synthesis; Delivery: deadlines, submissions, milestone tags | My younger sister — school study organization problem |
 | Anano Kutchava  | @Xranano| Build: repo, code, deployment; Delivery: deadlines, submissions, milestone tags           | Nika — birthday restaurant availability (from Anano’s existing problem-pool entry)           |
+| Guja Tsitaishvili | @guja-tsitaishvili | Discovery: interviews 07 onward; Build: prototype | Tamari — my grandmother; finding a doctor for her specific health problem (from my problem-pool entry) |
 
-**Teams of 2:** Each person carries one and a half accountabilities as shown above.
+**Team of 3:** Each accountability has at least one owner.
 
 ## How we work
 
@@ -51,3 +52,4 @@ Committing this file is signing it.
 | --------------- | ----------------- | ---------- |
 | Tekla Kilasonia | @Kilasoniatekla777    | 2026-09-22 |
 | Anano Kutchava  | @Xranano | 2026-09-22 |
+| Guja Tsitaishvili | @guja-tsitaishvili | 2026-10-17 |
