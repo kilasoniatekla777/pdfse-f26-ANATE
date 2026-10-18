@@ -13,7 +13,7 @@ Course source: Lab-2/README.md, Lab-2/HOMEWORK.md and Lab-2/TEAM-REPO-SETUP.md f
 
 ## Remaining requirements
 
-- Hypothesis was first committed October 7, after the October 1–3 Lab 2 interviews. On October 18, Anano clarified that the team formed it before interviewing and had chosen the project and told the professor before the semester. The prior exact hypothesis date and supporting record are not supplied. See the chronology note in problem-hypothesis.md; the professor must assess the late-commit requirement. Git history and interview dates are unchanged.
+- Hypothesis was first committed October 7, after the October 1–3 Lab 2 interviews. On October 18, Anano clarified that the team formed it before interviewing and had chosen the project and told the professor before the semester. The prior exact hypothesis date and supporting record are not supplied. Anano subsequently confirmed October 18 that the professor accepted this chronology explanation; this is recorded as student-reported acceptance. Git history and interview dates are unchanged.
 - Tbilisi, outside-course eligibility, note-taking and quote-publication consent are confirmed by the user. Interviewer/note-taker assignments follow the source; actual session times and separate recording permission remain unspecified.
 - Both members review the drafted beliefs and journals. The user confirmed both personally experienced the problem. Five broad nail-booking customers are now identified, but the narrower same-day ICP has only one clear interview match.
 - User reports the external audit and practice happened; supply the actual reviewing team, question feedback, practice dates/participants and green/red moments to complete the records. Assistant self-review is separately labelled.
@@ -26,3 +26,9 @@ The files and interviews are published for review; Lab 2 is not represented as f
 ## Lab 3 · October 8 update
 
 Six supplied interview logs now contain consent, exact excerpts and surprise reflections. The affinity map indexes every numbered answer (54 quote IDs) and four multi-interview patterns. Patterns analysis provides evidence-bounded why chains and a retrospective prediction count. The weakened verdict is appended to DECISIONS.md and the hypothesis, and script v2 traces additions to repeated supplied surprises. These are assistant-prepared interpretations for team review; previously documented timing and external activity gaps remain.
+
+## Lab 4 / Week 5 preparation · October 18
+
+The synthesis now includes all eight logs and five patterns; the landscape includes the previously missing texting/rebooking alternatives and new comparison cases. The [prototype plan](../02-design/prototype-plan.md) specifies a falsifiable selection task, failure rule, three evidence-earned screens and five recruitment targets, including two new people. It is not built or tested yet. The [09–10 interview sprint](interview-sprint-09-10.md) prepares the remaining real sessions. Anano’s HW1, personal work record and practice reflection incorporate her supplied personal account and are prepared for publication; retrospective dates and missing frontend artifacts remain explicit.
+
+See [the M1 submission checklist](m1-submission-checklist.md) for row-by-row status, the old milestone tag, the student-reported instructor acceptance, and forms/quiz actions. These external actions are not represented as completed.

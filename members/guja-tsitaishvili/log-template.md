@@ -9,7 +9,7 @@ Copy to `01-discovery/interview-logs/NN-nail-customer-tbilisi.md`. Fill it from 
 **Not enrolled in this course:** Yes / No
 **Consent to notes:** Yes / No · **Consent to anonymous repository quotes:** Yes / No
 **Recording:** Not recorded (notes only). If notes were refused: write "from memory" here and log immediately afterwards.
-**Script used:** [v2](../interview-script-v2.md)
+**Script used:** [v2](../../01-discovery/interview-script-v2.md)
 **Context:** City; the booking they described (when, how much notice, what else was happening). No contact details.
 **Our prediction:** We are wrong if the customer does not raise waiting to learn whether a suitable appointment time is free as a difficulty when describing their latest short-notice nail-booking attempt, before we ask about availability or waiting.
 

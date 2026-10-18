@@ -8,7 +8,7 @@ Anano reports that she and Tekla had already chosen the IERI project before the 
 
 These are related but distinct claims: choosing a project before the semester is not itself a dated record of the exact six-slot hypothesis or its “we are wrong if” prediction. The exact date and original wording of the earlier hypothesis, and any contemporaneous supporting messages or notes, have not been supplied here. This clarification records the team's account without changing interview dates or Git history.
 
-**Rubric status:** The earlier-commit requirement remains unmet in Git history. The professor should assess whether the team's explanation and any existing supporting record are acceptable for row 5. The original September outreach completion remains unknown.
+**Rubric status:** The earlier-commit condition remains unmet in Git history. On October 18, Anano confirmed that the professor accepted the team’s chronology explanation. This records the student-reported acceptance; no original professor message or replacement earlier commit is claimed. The original September outreach completion remains unknown.
 
 ## Step 1: Each member's independent belief
 
