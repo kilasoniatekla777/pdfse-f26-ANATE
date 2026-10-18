@@ -1,6 +1,14 @@
 # Problem Hypothesis v1
 
-**Prepared and first committed:** 2026-10-07. The user-reported Lab 2 interviews occurred October 1–3, before this commit. The hypothesis is retrospective for those interviews; ask the instructor how to remediate this timing requirement. The original September outreach completion remains unknown. Preserve dates and commit history.
+**Repository version prepared and first committed:** 2026-10-07. The user-reported Lab 2 interviews occurred October 1–3, before this commit. This proves the repository documentation was late; it does not establish when the team first formed the hypothesis.
+
+## Team chronology clarification · October 18, 2026
+
+Anano reports that she and Tekla had already chosen the IERI project before the semester began and had told the professor about that project direction. She also clarifies that they formed the hypothesis before conducting the interviews, but did not understand that it needed to be committed beforehand, so the repository version was first committed on October 7.
+
+These are related but distinct claims: choosing a project before the semester is not itself a dated record of the exact six-slot hypothesis or its “we are wrong if” prediction. The exact date and original wording of the earlier hypothesis, and any contemporaneous supporting messages or notes, have not been supplied here. This clarification records the team's account without changing interview dates or Git history.
+
+**Rubric status:** The earlier-commit requirement remains unmet in Git history. The professor should assess whether the team's explanation and any existing supporting record are acceptable for row 5. The original September outreach completion remains unknown.
 
 ## Step 1: Each member's independent belief
 

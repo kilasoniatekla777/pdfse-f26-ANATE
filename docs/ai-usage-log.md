@@ -31,3 +31,5 @@ Wk4 (2026-10-16) · TK · Claude Code · drafted 02-design/prototype-plan.md fro
 Wk4 (2026-10-16) · TK · Claude Code · rewrote 02-design/prototype-plan.md around the existing ICP v1 (same-day customer) at the team's request · quotes checked against logs; testers not yet contacted; team to review before Lab 5.
 
 Wk4 (2026-10-17) · GT · Claude Code · drafted 02-design/prototype-plan.md from the Week 4 problem statement; wrote members/guja-tsitaishvili/ pattern-journal scaffold, interview-prep and log-template; reworded Guja's contract row and his three problem-pool statements from his own spoken observations · GT supplied every observation and the outreach target; costs left as [ ] for GT to fill; journal blanks left for GT's own words; no interviews or quotes generated; team review needed for the prototype plan.
+
+Chronology clarification (2026-10-18) · AK · Codex · added the user-reported pre-interview hypothesis and pre-semester project discussion to hypothesis, team clarifications, lab status and analysis · distinguished project choice from a dated exact prediction; preserved Git/interview dates and the pending instructor assessment.

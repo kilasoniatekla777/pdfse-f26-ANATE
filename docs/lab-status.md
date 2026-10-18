@@ -13,7 +13,7 @@ Course source: Lab-2/README.md, Lab-2/HOMEWORK.md and Lab-2/TEAM-REPO-SETUP.md f
 
 ## Remaining requirements
 
-- Hypothesis was committed October 7, after all three supplied Lab 2 interview dates. This chronology is disclosed; consult the instructor about remediation. No backdating is performed.
+- Hypothesis was first committed October 7, after the October 1–3 Lab 2 interviews. On October 18, Anano clarified that the team formed it before interviewing and had chosen the project and told the professor before the semester. The prior exact hypothesis date and supporting record are not supplied. See the chronology note in problem-hypothesis.md; the professor must assess the late-commit requirement. Git history and interview dates are unchanged.
 - Tbilisi, outside-course eligibility, note-taking and quote-publication consent are confirmed by the user. Interviewer/note-taker assignments follow the source; actual session times and separate recording permission remain unspecified.
 - Both members review the drafted beliefs and journals. The user confirmed both personally experienced the problem. Five broad nail-booking customers are now identified, but the narrower same-day ICP has only one clear interview match.
 - User reports the external audit and practice happened; supply the actual reviewing team, question feedback, practice dates/participants and green/red moments to complete the records. Assistant self-review is separately labelled.
