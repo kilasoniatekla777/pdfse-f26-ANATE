@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&amp;family=Playfair+Display:wght@400;500&amp;display=swap" rel="stylesheet">
+<script src="./ieri-data.js"></script>
+<style>
+@keyframes ieriIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes ieriUp{from{transform:translateY(100%)}to{transform:none}}
+@keyframes ieriFade{from{opacity:0}to{opacity:1}}
+</style>
+</helmet>
+<div style="height:874px;width:100%;display:flex;flex-direction:column;background:#FCFAF8;font-family:'Jost',sans-serif;color:#1F1A17;position:relative;overflow:hidden">
+  <div style="height:54px;flex:none"></div>
+  <div style="flex:none;padding:4px 20px 14px;display:flex;flex-direction:column;gap:14px;border-bottom:1px solid #E3D8CE;background:#FCFAF8">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="font:500 17px/1 'Playfair Display',serif;letter-spacing:.28em;padding-left:.28em;color:#6B4A38">IERI</div>
+        <div style="font:500 10px/1.2 'Jost',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#8C7F76">For salons</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;font:400 13px/1.5 'Jost',sans-serif;color:#5A514A">
+        <span>Nail Studio Vake</span>
+        <div style="width:32px;height:32px;border-radius:999px;background:#F0E7DF;display:flex;align-items:center;justify-content:center;font:400 14px/1 'Playfair Display',serif;color:#6B4A38">N</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:2px">
+      <h1 style="margin:0;font:400 28px/1.15 'Playfair Display',serif">{{ dayTitle }}</h1>
+      <div style="font:400 13px/1.5 'Jost',sans-serif;color:#5A514A">{{ summary }}</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px">
+      <sc-for list="{{ dayTiles }}" as="d" hint-placeholder-count="7">
+        <button onClick="{{ d.onTap }}" aria-label="{{ d.aria }}" style="height:58px;padding:0;border-radius:12px;border:1px solid {{ d.bd }};background:{{ d.bg }};color:{{ d.fg }};display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;cursor:pointer;position:relative">
+          <span style="font:500 9px/1.2 'Jost',sans-serif;letter-spacing:.12em">{{ d.dow }}</span>
+          <span style="font:400 19px/1.1 'Playfair Display',serif">{{ d.date }}</span>
+          <sc-if value="{{ d.hasNew }}" hint-placeholder-val="{{ false }}"><span style="position:absolute;top:5px;right:5px;width:7px;height:7px;border-radius:999px;background:#3F6B4E"></span></sc-if>
+        </button>
+      </sc-for>
+    </div>
+    <div style="display:flex;gap:8px">
+      <sc-for list="{{ specTabs }}" as="s" hint-placeholder-count="3">
+        <button onClick="{{ s.onTap }}" style="flex:1;height:44px;border-radius:999px;border:0;background:{{ s.bg }};color:{{ s.fg }};font:400 15px/1.2 'Jost',sans-serif;white-space:nowrap;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px">{{ s.label }}<span style="font-size:12px;opacity:.8">{{ s.count }}</span></button>
+      </sc-for>
+    </div>
+  </div>
+
+  <div style="flex:1;min-height:0;overflow-y:auto;padding:14px 20px 40px;display:flex;flex-direction:column;gap:8px">
+    <sc-for list="{{ rows }}" as="r" hint-placeholder-count="8">
+      <div style="display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;align-items:stretch">
+        <div style="font:400 15px/1.3 'Playfair Display',serif;color:{{ r.timeFg }};padding-top:14px">{{ r.time }}</div>
+        <div>
+          <sc-if value="{{ r.isBooked }}" hint-placeholder-val="{{ true }}">
+            <div onClick="{{ r.onTap }}" style="min-height:44px;padding:12px 14px;border-radius:12px;border:1px solid {{ r.bd }};background:{{ r.bg }};display:flex;align-items:center;gap:10px;cursor:pointer">
+              <div style="flex:1;min-width:0">
+                <div style="font:500 15px/1.4 'Jost',sans-serif">{{ r.name }}</div>
+                <div style="font:400 13px/1.5 'Jost',sans-serif;color:#5A514A">{{ r.service }}</div>
+              </div>
+              <sc-if value="{{ r.isNew }}" hint-placeholder-val="{{ false }}">
+                <span style="padding:4px 10px;border-radius:999px;background:#3F6B4E;color:#FCFAF8;font:500 12px/1.2 'Jost',sans-serif">New</span>
+              </sc-if>
+              <span style="padding:4px 10px;border-radius:999px;background:#F0E7DF;color:#3A322C;font:400 12px/1.2 'Jost',sans-serif;white-space:nowrap">{{ r.source }}</span>
+            </div>
+          </sc-if>
+          <sc-if value="{{ r.isBreak }}" hint-placeholder-val="{{ false }}">
+            <div style="min-height:44px;padding:12px 14px;border-radius:12px;background:repeating-linear-gradient(45deg,#F5EFE9 0 6px,#EDE6E0 6px 12px);display:flex;align-items:center;font:400 13px/1.5 'Jost',sans-serif;color:#5A514A">Break · 45 min</div>
+          </sc-if>
+          <sc-if value="{{ r.isBlocked }}" hint-placeholder-val="{{ false }}">
+            <div onClick="{{ r.onTap }}" style="min-height:44px;padding:12px 14px;border-radius:12px;background:repeating-linear-gradient(45deg,#F5EFE9 0 6px,#EDE6E0 6px 12px);display:flex;align-items:center;gap:8px;font:400 13px/1.5 'Jost',sans-serif;color:#3A322C;cursor:pointer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>
+              <span style="flex:1">Blocked · hidden from IERI</span>
+              <span style="font:500 12px/1.2 'Jost',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B4A38">Unblock</span>
+            </div>
+          </sc-if>
+          <sc-if value="{{ r.isFree }}" hint-placeholder-val="{{ false }}">
+            <div onClick="{{ r.onTap }}" style="min-height:44px;padding:12px 14px;border-radius:12px;border:1px dashed #C9A88F;display:flex;align-items:center;gap:8px;font:400 13px/1.5 'Jost',sans-serif;color:#5A514A;cursor:pointer">
+              <span style="flex:1">Free · bookable on IERI</span>
+              <span style="font:500 12px/1.2 'Jost',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6B4A38">Block</span>
+            </div>
+          </sc-if>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+
+  <sc-if value="{{ showSheet }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;inset:0;z-index:30;display:flex;flex-direction:column;justify-content:flex-end">
+      <div onClick="{{ closeSheet }}" style="position:absolute;inset:0;background:rgba(31,26,23,.42);animation:ieriFade 200ms ease"></div>
+      <div role="dialog" aria-modal="true" style="position:relative;background:#FFFDFB;border-radius:22px 22px 0 0;padding:12px 20px 38px;display:flex;flex-direction:column;gap:14px;animation:ieriUp 260ms cubic-bezier(.32,.72,0,1)">
+        <div style="width:36px;height:4px;border-radius:999px;background:#E3D8CE;align-self:center;margin-bottom:6px"></div>
+        <h2 style="margin:0;font:400 26px/1.2 'Playfair Display',serif">{{ sheet.title }}</h2>
+        <sc-if value="{{ sheet.isBooking }}" hint-placeholder-val="{{ false }}">
+          <div style="border:1px solid #E3D8CE;border-radius:14px;padding:4px 16px">
+            <sc-for list="{{ sheet.rows }}" as="x" hint-placeholder-count="4">
+              <div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;font:400 15px/1.5 'Jost',sans-serif;border-bottom:1px solid #F5EFE9">
+                <span style="color:#5A514A">{{ x.k }}</span><span style="text-align:right">{{ x.v }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+        <p style="margin:0;font:300 15px/1.6 'Jost',sans-serif;color:#3A322C;text-wrap:pretty">{{ sheet.body }}</p>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
+          <button onClick="{{ sheet.onPrimary }}" style="height:52px;border-radius:999px;border:0;background:{{ sheet.primaryBg }};color:#FCFAF8;font:500 12px/1.2 'Jost',sans-serif;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;cursor:pointer">{{ sheet.primary }}</button>
+          <button onClick="{{ closeSheet }}" style="height:52px;border-radius:999px;border:1px solid #E3D8CE;background:#FFFDFB;color:#1F1A17;font:500 12px/1.2 'Jost',sans-serif;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;cursor:pointer">{{ sheet.secondary }}</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ toast }}" hint-placeholder-val="{{ false }}">
+    <div role="status" style="position:absolute;left:16px;right:16px;bottom:40px;z-index:40;padding:14px 16px 14px 18px;border-radius:14px;background:#1F1A17;color:#FCFAF8;display:flex;align-items:center;gap:12px;box-shadow:0 12px 28px rgba(31,26,23,.28);animation:ieriIn 180ms cubic-bezier(.2,.8,.2,1)">
+      <span style="flex:1;font:400 14px/1.5 'Jost',sans-serif">{{ toast }}</span>
+      <sc-if value="{{ toastAction }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ toastAction }}" style="height:44px;padding:0 14px;border-radius:999px;border:1px solid #C9A88F;background:transparent;color:#FCFAF8;font:500 12px/1.2 'Jost',sans-serif;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;cursor:pointer">View</button>
+      </sc-if>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:402,&quot;height&quot;:874},&quot;shared&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;object&quot;},&quot;onUpdate&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;function&quot;},&quot;onFree&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;function&quot;},&quot;onBlock&quot;:{&quot;editor&quot;:null,&quot;tsType&quot;:&quot;function&quot;}}">
+class Component extends DCLogic {
+  state = { day: 0, spec: 'Nino', sheet: null, seen: {}, toast: null, jump: null, tick: 0 };
+  componentDidMount() { this.iv = setInterval(() => { if (window.IERI) { clearInterval(this.iv); this.setState({ tick: 1 }); } }, 300); }
+  componentWillUnmount() { clearInterval(this.iv); clearTimeout(this.tt); }
+  componentDidUpdate(pp) {
+    const D = window.IERI; if (!D) return;
+    const prev = ((pp.shared || {}).bookings) || [], next = ((this.props.shared || {}).bookings) || [];
+    next.forEach(b => {
+      if (b.pid !== 'vake') return;
+      const o = prev.find(x => x.id === b.id);
+      if (!o) this.flash('New IERI booking · ' + b.customer + ' · ' + D.DAYS[b.day].long + ', ' + b.time, { day: b.day, spec: b.spec });
+      else if (b.status === 'cancelled' && o.status === 'confirmed') this.flash(b.customer + ' cancelled ' + D.DAYS[b.day].long + ', ' + b.time + '. The time is open again.', null);
+      else if (o.time !== b.time || o.day !== b.day) this.flash(b.customer + ' moved to ' + D.DAYS[b.day].long + ', ' + b.time, { day: b.day, spec: b.spec });
+    });
+  }
+  flash(msg, jump) { clearTimeout(this.tt); this.setState({ toast: msg, jump }); this.tt = setTimeout(() => this.setState({ toast: null, jump: null }), 4200); }
+
+  renderVals() {
+    const D = window.IERI;
+    if (!D) return { rows: [], dayTiles: [], specTabs: [] };
+    const st = this.state, shared = this.props.shared || { bookings: [], freed: {}, blocks: {} };
+    const p = D.PROVIDERS.find(x => x.id === 'vake'), DAYS = D.DAYS;
+    const set = o => this.setState(o);
+    const money = n => '₾' + n;
+    const live = (shared.bookings || []).filter(b => b.pid === 'vake' && b.status === 'confirmed');
+    const unseen = b => !st.seen[b.id];
+
+    const rowsFor = (day, spec) => D.TIMES.map(t => {
+      const s = D.slotState(shared, 'vake', day, t, spec), k = D.key('vake', day, t, spec);
+      const base = { time: t, isBooked: false, isBreak: false, isBlocked: false, isFree: false, timeFg: '#1F1A17' };
+      if (s === 'break') return { ...base, isBreak: true, timeFg: '#8C7F76' };
+      if (s === 'blocked') return { ...base, isBlocked: true, timeFg: '#8C7F76', onTap: () => set({ sheet: { kind: 'blocked', day, t, spec, k } }) };
+      if (s === 'free') return { ...base, isFree: true, timeFg: '#8C7F76', onTap: () => set({ sheet: { kind: 'free', day, t, spec, k } }) };
+      let info;
+      if (s === 'booked') { const b = live.find(x => x.day === day && x.time === t && x.spec === spec); info = { customer: b.customer, sid: b.sid, source: 'IERI', live: b }; }
+      else info = D.seededInfo('vake', day, t, spec);
+      const svc = p.services.find(x => x.id === info.sid), isNew = !!(info.live && unseen(info.live));
+      return { ...base, isBooked: true, name: info.customer, service: svc.name + ' · ' + svc.min + ' min', source: info.source, isNew,
+        bg: isNew ? '#F7F0EA' : '#FFFDFB', bd: isNew ? '#C9A88F' : '#E3D8CE',
+        onTap: () => this.setState(s0 => ({ sheet: { kind: 'booking', day, t, spec, k, info, svc }, seen: info.live ? { ...s0.seen, [info.live.id]: true } : s0.seen })) };
+    });
+    const rows = rowsFor(st.day, st.spec);
+    const count = (day, spec, kind) => rowsFor(day, spec).filter(r => r[kind]).length;
+
+    const dayTiles = DAYS.map(d => {
+      const sel = d.i === st.day;
+      return { dow: d.i === 0 ? 'TODAY' : d.dow.toUpperCase(), date: d.date, aria: d.long, hasNew: live.some(b => b.day === d.i && unseen(b)),
+        onTap: () => set({ day: d.i }), bg: sel ? '#6B4A38' : '#FFFDFB', bd: sel ? '#6B4A38' : '#E3D8CE', fg: sel ? '#FCFAF8' : '#1F1A17' };
+    });
+    const specTabs = p.specs.map(s => ({ label: s, count: String(count(st.day, s, 'isBooked')), onTap: () => set({ spec: s }),
+      bg: s === st.spec ? '#6B4A38' : '#F0E7DF', fg: s === st.spec ? '#FCFAF8' : '#3A322C' }));
+    const booked = rows.filter(r => r.isBooked).length, free = rows.filter(r => r.isFree).length, blocked = rows.filter(r => r.isBlocked).length;
+    const summary = st.spec + ' · ' + booked + ' booked · ' + free + ' free' + (blocked ? ' · ' + blocked + ' blocked' : '');
+
+    let sheet = {};
+    const sh = st.sheet;
+    if (sh) {
+      const when = DAYS[sh.day].long + ', ' + sh.t;
+      if (sh.kind === 'booking') {
+        const dep = D.deposit(sh.svc.price), viaIeri = sh.info.source === 'IERI';
+        sheet = { isBooking: true, title: sh.info.customer,
+          rows: [{ k: 'Service', v: sh.svc.name }, { k: 'When', v: when + ' · ' + sh.svc.min + ' min' }, { k: 'Specialist', v: sh.spec }, { k: 'Booked via', v: sh.info.source },
+            { k: 'Payment', v: viaIeri ? money(dep) + ' deposit paid · ' + money(sh.svc.price - dep) + ' at salon' : money(sh.svc.price) + ' at salon' }],
+          body: viaIeri ? 'Cancelling refunds the ' + money(dep) + ' deposit in full and tells ' + sh.info.customer + ' by SMS straight away.' : 'Cancelling frees this time on IERI. Let ' + sh.info.customer + ' know by ' + (sh.info.source === 'Instagram' ? 'Instagram' : 'phone') + '.',
+          primary: 'Cancel booking', primaryBg: '#9B3B32', secondary: 'Keep',
+          onPrimary: () => {
+            if (sh.info.live) this.props.onUpdate && this.props.onUpdate(sh.info.live.id, { status: 'cancelled_provider' });
+            else this.props.onFree && this.props.onFree(sh.k);
+            this.setState({ sheet: null }); this.flash(viaIeri ? 'Cancelled. ' + sh.info.customer + ' was refunded ' + money(dep) + '.' : 'Cancelled. ' + sh.t + ' is open on IERI again.', null);
+          } };
+      } else if (sh.kind === 'free') {
+        sheet = { isBooking: false, title: 'Block ' + sh.t + '?', body: when + ' with ' + sh.spec + '. Customers on IERI won\u2019t see this time until you unblock it.',
+          primary: 'Block time', primaryBg: '#6B4A38', secondary: 'Not now',
+          onPrimary: () => { this.props.onBlock && this.props.onBlock(sh.k); this.setState({ sheet: null }); this.flash(sh.t + ' blocked for ' + sh.spec + '.', null); } };
+      } else {
+        sheet = { isBooking: false, title: 'Unblock ' + sh.t + '?', body: when + ' with ' + sh.spec + ' becomes bookable on IERI again.',
+          primary: 'Unblock', primaryBg: '#6B4A38', secondary: 'Keep blocked',
+          onPrimary: () => { this.props.onBlock && this.props.onBlock(sh.k); this.setState({ sheet: null }); this.flash(sh.t + ' is open again.', null); } };
+      }
+    }
+    const d = DAYS[st.day];
+    return {
+      dayTitle: (st.day === 0 ? 'Today, ' : st.day === 1 ? 'Tomorrow, ' : '') + d.long, summary, dayTiles, specTabs, rows,
+      showSheet: !!sh, sheet, closeSheet: () => set({ sheet: null }),
+      toast: st.toast, toastAction: st.jump ? () => set({ day: st.jump.day, spec: st.jump.spec, toast: null, jump: null }) : null
+    };
+  }
+}
+</script>
+</body>
+</html>

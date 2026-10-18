@@ -1,6 +1,6 @@
 # Homework 1 · Anano Kutchava (@xranano) · Team ANATE
 
-**Individual · 5 points · Prepared October 18, 2026.** Based on Anano's confirmed personal account and linked project records, polished with Codex and disclosed in the [AI usage log](../../docs/ai-usage-log.md). Journal entries are retrospective. The reported frontend demonstration is documented in the [personal work record](personal-work-record.md); its source/link and detailed feedback still need attaching.
+**Individual · 5 points · Prepared October 18, 2026.** Based on Anano's confirmed personal account and linked project records, polished with Codex and disclosed in the [AI usage log](../../docs/ai-usage-log.md). Journal entries are retrospective. Anano reviewed the wording on October 18. The [IERI brand book](../../docs/artifacts/IERI-Brand-Book.html) is attached as design evidence; the reported frontend demonstration is documented in the [personal work record](personal-work-record.md).
 
 ## 1. My interview log
 
@@ -61,7 +61,7 @@ Keeping the counterexamples in the [affinity map](../../01-discovery/synthesis/a
 
 I helped with the interviews, the problem statement, and discussions about what to automate, what to leave flexible, and whether people would adopt the process. The [problem statement](../../01-discovery/problem-statement.md) focuses on knowing whether the complete service will finish before a later commitment. Tekla made the [commit](https://github.com/kilasoniatekla777/pdfse-f26-ANATE/commit/0db4aa6) and owns that Week 4 decision in [DECISIONS.md](../../DECISIONS.md); my collaboration is recorded in my [personal work record](personal-work-record.md).
 
-Tekla and I also built a simple frontend and showed it mostly to friends and family. A frontend gave us something concrete to discuss without implementing the whole system. Their feedback was positive, and afterward they sometimes pointed out situations where they thought it would be useful. That encouraged us, but it does not yet show that someone can complete a booking or that salons will adopt it. The frontend link/source, demonstration dates, and detailed feedback have not been added to this repo; this is my retrospective account of that work.
+Tekla and I also built a simple frontend and showed it mostly to friends and family. A frontend gave us something concrete to discuss without implementing the whole system. Their feedback was positive, and afterward they sometimes pointed out situations where they thought it would be useful. That encouraged us, but it does not yet show that someone can complete a booking or that salons will adopt it. The attached [IERI brand book](../../docs/artifacts/IERI-Brand-Book.html) documents the visual system and interface examples, including service cards, booking buttons, time-slot states, and price/duration information. It supports the design work but is not a complete booking-flow prototype. The [frontend HTML sources](../../02-design/prototype/README.md) are now attached: a prototype composition, customer view, and salon console. Their runtime/data/frame dependencies were not included, so this upload is source evidence rather than a verified runnable demo. Demonstration dates and detailed feedback remain described only in my retrospective account.
 
 Guja's newer interviews add a useful contrast: [07](../../01-discovery/interview-logs/07-nail-customer-tbilisi.md) describes a difficult short-notice booking, while [08](../../01-discovery/interview-logs/08-nail-customer-tbilisi.md) describes an easy WhatsApp booking with the same technician, more notice, and a clear finish time. The contrast suggests that urgency and the information supplied matter; two accounts cannot establish the cause. My next step is to use the frontend for an observed booking task and record what people actually do, including whether they still want to call the salon. That task test is a next step, not a completed activity.
 
@@ -95,8 +95,11 @@ Working evidence links: [problem pool](../../00-foundation/problem-pool.md), [sc
 - [x] Confirm my selected quote and supply my actual practice-interview Mom Test example and revised question.
 - [x] Include four retrospective journal reflections, each with evidence links, and explain my decision contributions.
 - [x] Copy the relevant DECISIONS.md entries word for word.
-- [ ] Attach the frontend source or demo link and any existing feedback notes; the demonstration is currently supported by my retrospective account.
-- [ ] Review the polished wording and confirm the week grouping matches the activity dates as far as I remember.
+- [x] Attach the IERI brand book as design evidence.
+- [x] Attach the [frontend HTML sources](../../02-design/prototype/README.md), with missing runtime dependencies documented.
+- [ ] Add any existing demonstration dates and feedback notes; the feedback session is supported by my retrospective account.
+- [x] Review the polished wording (Anano confirmed October 18).
+- [ ] Add activity dates where remembered; the weekly grouping remains retrospective.
 - [ ] Check with the instructor how to handle the retrospective journal history and the practice example in place of a numbered real-interview Mom Test incident.
 - [x] Prepared for commit and push under my configured Git identity with AI assistance disclosed.
 - [ ] Submit my own HW1 Google form from Teams by October 19, midnight, as announced; the form URL is not included in the supplied message.

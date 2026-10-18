@@ -1,6 +1,6 @@
 # Prototype Plan · complete service inside a fixed time window
 
-Prepared October 18, 2026 for Lab 4 / the Lab 5 build. This replaces the deleted October 16 plan, using the current problem statement and logs 07–08. It is a proposed observed task test, not a completed task test or a real reservation service. Anano reports an earlier simple frontend shown informally to friends/family; its source or demo link is not yet in this repo (see [personal record](../members/xranano/personal-work-record.md)). Reuse that frontend if it can isolate the flow; otherwise use a small clickable mockup.
+Prepared October 18, 2026 for Lab 4 / the Lab 5 build. This replaces the deleted October 16 plan, using the current problem statement and logs 07–08. It is a proposed observed task test, not a completed task test or a real reservation service. Anano reports an earlier simple frontend shown informally to friends/family; its [HTML sources are now attached](prototype/README.md), with missing runtime dependencies documented (see [personal record](../members/xranano/personal-work-record.md)). Reuse that frontend if it can isolate the flow; otherwise use a small clickable mockup.
 
 ## 1. The riskiest assumption
 

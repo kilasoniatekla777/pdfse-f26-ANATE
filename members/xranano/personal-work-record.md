@@ -14,4 +14,12 @@ Anano reports helping with interviews, the problem statement, and discussion of 
 
 Anano reports that she and Tekla built a simple frontend and showed it mostly to friends and family. Feedback was positive, and people later pointed to situations where they thought the product would be useful. This describes informal reactions and later expressions of interest; no observed task-completion results, real bookings, adoption figures or resulting design changes were supplied.
 
-The frontend's source/link, build and demonstration dates, and individual feedback notes have not yet been added to this repository. At the October 18 check, tracked `app/` and `02-design/` contain only placeholder files. Tekla's [October 16 prototype plan](https://github.com/kilasoniatekla777/pdfse-f26-ANATE/commit/285bcf6) was [subsequently deleted](https://github.com/kilasoniatekla777/pdfse-f26-ANATE/commit/7af637d); that history does not establish where this reported frontend is stored.
+The [frontend HTML sources](../../02-design/prototype/README.md) were supplied and added October 18: the prototype composition, customer view and provider view. The referenced `support.js`, `ieri-data.js` and `ios-frame.jsx` were absent from the supplied IERI folder; runtime behavior has not been verified. Build/demonstration dates and individual feedback notes remain unspecified. The restored [current prototype plan](../../02-design/prototype-plan.md) proposes a future task test; it does not establish completed testing.
+
+## Attached design artifact
+
+On October 18 Anano supplied [IERI-Brand-Book.html](../../docs/artifacts/IERI-Brand-Book.html) and confirmed the homework wording was good. A copy is saved in the repo for stable relative links; the original file is unchanged.
+
+The HTML is titled IERI Brand Book v3.0, a companion to DESIGN.md. It contains positioning, visual identity, typography, colors, interface button/card examples, availability states, and sample service price/duration/deposit displays. It is design evidence rather than a complete booking journey. Its product/audience descriptions are design assumptions, not additional interview findings or evidence of a live provider calendar. No design-source creation date, authorship or demonstration date is inferred from the file's filesystem timestamp.
+
+The file does not document task completion, the friends/family feedback session, or the feedback session reported above. The frontend sources are now linked separately; demonstration and feedback details remain supported by Anano's account.
