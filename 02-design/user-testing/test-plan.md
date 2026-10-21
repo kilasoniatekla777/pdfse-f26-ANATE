@@ -28,9 +28,9 @@ All five from our ICP. None in this course. Code names only; real names and numb
 
 | # | Code name | Role (as in our ICP) | Why they fit the ICP | Session runner (asks) | Session logger (writes) | Target day | Status (messaged / booked / done) |
 |---|---|---|---|---|---|---|---|
-| 1 | Nina | Nail customer, short notice | Log 03. A few free hours, had to leave by 14:30 | AK | TK | | to message |
-| 2 | Customer-07 | Nail customer, short notice | Log 07. Learned it took two hours only at confirmation; cancelled evening plans | GT | AK | | to message |
-| 3 | Maya | Nail customer, fixed plan after | Log 01. Couldn't tell whether the slot included removal | TK | GT | | to message |
+| 1 | Nina | Nail customer, short notice | Log 03. A few free hours, had to leave by 14:30 | AK | TK | 2026-10-21 | done (session 2, PASS) |
+| 2 | Customer-07 | Nail customer, short notice | Log 07. Learned it took two hours only at confirmation; cancelled evening plans | GT | AK | 2026-10-21 | done (session 3, PASS) |
+| 3 | Maya | Nail customer, fixed plan after | Log 01. Couldn't tell whether the slot included removal | TK | AK | 2026-10-21 | done (session 1, PASS) |
 | 4 | New-A | Nail customer, recent limited booking window | New, not interviewed | GT | TK | | to recruit |
 | 5 | New-B | Nail customer, recent limited booking window | New, not interviewed | AK | GT | | to recruit |
 
