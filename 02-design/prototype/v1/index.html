@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IERI · Prototype v1</title>
+<style>
+  :root {
+    --bg: #faf7f5; --card: #ffffff; --ink: #1f1a1c; --muted: #6f6569;
+    --line: #e7dfe2; --accent: #b0416a; --accent-soft: #f6e6ec;
+    --ok: #2e7d4f; --ok-soft: #e5f3ea; --late: #a33a2a; --late-soft: #f8e7e3;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  .app { max-width: 430px; margin: 0 auto; min-height: 100vh; display: flex; flex-direction: column; }
+  .notice { background: #2b2326; color: #fff; font-size: 12px; text-align: center; padding: 6px 12px; }
+  header { padding: 16px 16px 8px; display: flex; align-items: center; gap: 8px; }
+  header button { border: 0; background: none; font-size: 22px; padding: 4px 8px 4px 0; color: var(--ink); cursor: pointer; }
+  header button[hidden] { display: none; }
+  .salon { font-weight: 600; }
+  .salon small { display: block; color: var(--muted); font-weight: 400; font-size: 13px; }
+  main { flex: 1; padding: 8px 16px 120px; }
+  h1 { font-size: 22px; margin: 8px 0 4px; }
+  .sub { color: var(--muted); margin: 0 0 16px; font-size: 14px; }
+  .opt { display: block; width: 100%; text-align: left; background: var(--card); border: 1.5px solid var(--line);
+    border-radius: 14px; padding: 14px 16px; margin-bottom: 10px; font: inherit; color: inherit; cursor: pointer; }
+  .opt.sel { border-color: var(--accent); background: var(--accent-soft); }
+  .opt .row { display: flex; justify-content: space-between; gap: 12px; font-weight: 600; }
+  .opt .meta { color: var(--muted); font-size: 14px; margin-top: 4px; }
+  .incl { font-size: 13px; color: var(--muted); margin-top: 6px; }
+  .slot .time { font-size: 18px; }
+  .slot .finish { font-size: 14px; margin-top: 2px; }
+  .ask { display: block; width: 100%; margin-top: 8px; background: none; border: 1.5px dashed var(--line);
+    border-radius: 14px; padding: 12px; font: inherit; color: var(--muted); cursor: pointer; }
+  .sum { background: var(--card); border: 1.5px solid var(--line); border-radius: 14px; padding: 4px 16px; }
+  .sum div { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .sum div:last-child { border-bottom: 0; }
+  .sum span:first-child { color: var(--muted); }
+  .sum span:last-child { font-weight: 600; text-align: right; }
+  .bar { position: fixed; left: 0; right: 0; bottom: 0; padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    background: linear-gradient(transparent, var(--bg) 30%); }
+  .bar .inner { max-width: 398px; margin: 0 auto; }
+  .cta { width: 100%; border: 0; border-radius: 14px; padding: 16px; font: inherit; font-weight: 600;
+    background: var(--accent); color: #fff; cursor: pointer; }
+  .cta:disabled { background: #d9cfd3; cursor: default; }
+  .done { text-align: center; padding-top: 40px; }
+  .done .tick { width: 64px; height: 64px; border-radius: 50%; background: var(--ok-soft); color: var(--ok);
+    display: grid; place-items: center; font-size: 32px; margin: 0 auto 12px; }
+  .modal { position: fixed; inset: 0; background: rgba(0,0,0,.4); display: grid; place-items: center; padding: 16px; }
+  .modal[hidden] { display: none; }
+  .modal .box { background: var(--card); border-radius: 16px; padding: 20px; max-width: 360px; }
+  .restart { display: block; margin: 24px auto 0; background: none; border: 0; color: var(--muted);
+    font: inherit; font-size: 13px; text-decoration: underline; cursor: pointer; }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="notice">Test prototype · fictional salon · no real appointment is made</div>
+  <header>
+    <button id="back" aria-label="Back" hidden>‹</button>
+    <div class="salon">Salon Example<small>Vake, Tbilisi · test data</small></div>
+  </header>
+  <main id="view"></main>
+  <div class="bar"><div class="inner"><button class="cta" id="cta" disabled>Continue</button></div></div>
+</div>
+
+<div class="modal" id="askModal" hidden>
+  <div class="box">
+    <p><strong>Message the salon</strong></p>
+    <p class="sub">In the real product this would open a chat with the salon. For this test, please tell us what you would ask them.</p>
+    <button class="cta" id="askClose">OK</button>
+  </div>
+</div>
+
+<script>
+  // Fictional test data. The plan holds provider and services constant so the test is about fit.
+  const SERVICES = [
+    { id: "gel", name: "Gel manicure", min: 60, price: 50, incl: "New gel colour. Does not include removing old gel." },
+    { id: "removal_gel", name: "Gel removal + gel manicure", min: 75, price: 60, incl: "Removes your existing gel, then a new gel manicure." },
+    { id: "classic", name: "Classic manicure", min: 45, price: 35, incl: "Regular polish. Does not include removing old gel." }
+  ];
+  const STARTS = ["12:15", "13:00", "13:30", "13:45", "14:15"];
+
+  const state = { step: 1, service: null, start: null };
+  const view = document.getElementById("view");
+  const cta = document.getElementById("cta");
+  const back = document.getElementById("back");
+
+  const toMin = t => { const [h, m] = t.split(":").map(Number); return h * 60 + m; };
+  const fmt = m => String(Math.floor(m / 60)).padStart(2, "0") + ":" + String(m % 60).padStart(2, "0");
+  const finish = (start, svc) => fmt(toMin(start) + svc.min);
+  const dur = m => m >= 60 ? `${Math.floor(m / 60)} h${m % 60 ? " " + (m % 60) + " min" : ""}` : `${m} min`;
+
+  function render() {
+    back.hidden = state.step === 1 || state.step === 4;
+    document.querySelector(".bar").style.display = state.step === 4 ? "none" : "";
+    if (state.step === 1) renderServices();
+    if (state.step === 2) renderSlots();
+    if (state.step === 3) renderSummary();
+    if (state.step === 4) renderDone();
+    window.scrollTo(0, 0);
+  }
+
+  function renderServices() {
+    view.innerHTML = `<h1>Choose your service</h1><p class="sub">Today</p>` +
+      SERVICES.map(s => `
+        <button class="opt ${state.service?.id === s.id ? "sel" : ""}" data-id="${s.id}">
+          <div class="row"><span>${s.name}</span><span>${s.price} ₾</span></div>
+          <div class="meta">Takes ${dur(s.min)} in total</div>
+          <div class="incl">${s.incl}</div>
+        </button>`).join("");
+    view.querySelectorAll(".opt").forEach(b => b.onclick = () => {
+      state.service = SERVICES.find(s => s.id === b.dataset.id); state.start = null; render();
+    });
+    cta.textContent = "See times"; cta.disabled = !state.service;
+  }
+
+  function renderSlots() {
+    const s = state.service;
+    view.innerHTML = `<h1>Pick a time today</h1><p class="sub">${s.name} · ${dur(s.min)}</p>` +
+      STARTS.map(t => `
+        <button class="opt slot ${state.start === t ? "sel" : ""}" data-t="${t}">
+          <div class="row"><span class="time">${t} – ${finish(t, s)}</span></div>
+          <div class="finish meta">You finish at ${finish(t, s)}</div>
+        </button>`).join("") +
+      `<button class="ask" id="ask">Message the salon</button>`;
+    view.querySelectorAll(".slot").forEach(b => b.onclick = () => { state.start = b.dataset.t; render(); });
+    document.getElementById("ask").onclick = () => document.getElementById("askModal").hidden = false;
+    cta.textContent = "Review"; cta.disabled = !state.start;
+  }
+
+  function renderSummary() {
+    const s = state.service;
+    view.innerHTML = `<h1>Check before you choose</h1><p class="sub">Salon Example · today</p>
+      <div class="sum">
+        <div><span>Service</span><span>${s.name}</span></div>
+        <div><span>Included</span><span>${s.incl}</span></div>
+        <div><span>Starts</span><span>${state.start}</span></div>
+        <div><span>Finishes</span><span>${finish(state.start, s)}</span></div>
+        <div><span>Total time</span><span>${dur(s.min)}</span></div>
+        <div><span>Price</span><span>${s.price} ₾</span></div>
+      </div>`;
+    cta.textContent = "Choose this appointment"; cta.disabled = false;
+  }
+
+  function renderDone() {
+    const s = state.service;
+    view.innerHTML = `<div class="done"><div class="tick">✓</div>
+      <h1>You chose ${state.start} – ${finish(state.start, s)}</h1>
+      <p class="sub">${s.name}</p>
+      <p class="sub">This is a test prototype. No real appointment was made.</p>
+      <button class="restart" id="restart">Start again (for the next tester)</button></div>`;
+    document.getElementById("restart").onclick = () => { state.step = 1; state.service = null; state.start = null; render(); };
+  }
+
+  cta.onclick = () => { if (!cta.disabled) { state.step++; render(); } };
+  back.onclick = () => { state.step--; render(); };
+  document.getElementById("askClose").onclick = () => document.getElementById("askModal").hidden = true;
+  render();
+</script>
+</body>
+</html>

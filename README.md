@@ -7,7 +7,7 @@ IERI is a proposed beauty-service discovery and booking product for Tbilisi. Dis
 
 | Link | Status |
 |---|---|
-| Prototype | coming Week 5 |
+| Prototype | [v1, clickable on a phone](https://raw.githack.com/kilasoniatekla777/pdfse-f26-ANATE/main/02-design/prototype/v1/index.html) · [source](02-design/prototype/v1/index.html) |
 | Live product | coming Week 7 |
 | Analytics dashboard (PostHog) | coming Week 7 |
 | 12-month model | coming Week 12 |
