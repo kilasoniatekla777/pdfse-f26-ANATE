@@ -15,6 +15,8 @@ Your metric is only as good as your instrumentation. Every row here becomes one 
 | Acquisition | `customer_opens_salon_page` | customer | customer_id, salon_id, source (instagram, maps, link, other) | AK |
 | Activation (precursor) | `customer_selects_service` | customer | customer_id, salon_id, service_id, includes_removal, duration_min | GT |
 | Activation (north star) ★ | `customer_books_fitting_appointment` | customer | customer_id, booking_id, service_id, duration_min, finishes_before_deadline, minutes_spare | TK |
+| Activation (precursor) | `customer_sets_deadline` | customer | customer_id, salon_id, deadline_time, slots_shown, slots_fitting | TK |
+| Activation (system) | `system_blocks_slot` | system | salon_id, booking_id, slot_start, duration_min, ms_since_booking | GT |
 | Activation (failure path) | `customer_messages_salon_before_booking` | customer | customer_id, salon_id, step (service, times, summary) | TK |
 | Retention | `customer_books_repeat_appointment` | customer | customer_id, booking_id, days_since_last_booking | AK |
 

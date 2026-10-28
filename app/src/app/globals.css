@@ -1,0 +1,8 @@
+/*
+ * The app's entire stylesheet, from IERI's shared tokens. Never add a colour,
+ * size, radius or duration here.
+ */
+@import "../ui/styles.css";
+
+/* Scan this app's source for utility classes. */
+@source "../";

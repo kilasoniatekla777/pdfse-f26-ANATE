@@ -1,0 +1,81 @@
+{
+  "scaffold": {
+    "status": "Running",
+    "note": "Placeholder page. Design tokens, shared primitives and ka/en routing are wired.",
+    "tokenProof": "Every value below comes from @ieri/ui. No hardcoded design values in this app.",
+    "languageLabel": "Language"
+  },
+  "home": {
+    "search": {
+      "placeholder": "Search for a salon, service or area"
+    },
+    "tagline": "Book a nail appointment and see exactly when you'll finish.",
+    "testSalon": "Open the test salon"
+  },
+  "provider": {
+    "openNow": "Open now",
+    "availableToday": "Next available today"
+  },
+  "service": {
+    "price": "₾{amount}",
+    "duration": "{minutes} min"
+  },
+  "booking": {
+    "confirm": "Confirm booking",
+    "cancel": "Cancel booking"
+  },
+  "auth": {
+    "phone": {
+      "title": "Enter your phone number"
+    },
+    "otp": {
+      "resendIn": "Resend code in {seconds}s"
+    }
+  },
+  "payment": {
+    "deposit": {
+      "payNow": "Pay now",
+      "atSalon": "At the salon"
+    }
+  },
+  "flow": {
+    "back": "Back",
+    "chooseService": "Choose your service",
+    "next": "Next",
+    "takes": "Takes {duration} in total",
+    "minutes": "{m} min",
+    "hoursMinutes": "{h} h {m} min",
+    "removalIncluded": "Removing old gel is included.",
+    "removalNotIncluded": "Does not include removing old gel.",
+    "leaveBy": "What time do you have to leave by?",
+    "leaveByHint": "We'll show which times finish before then.",
+    "showTimes": "Show times",
+    "pickTime": "Pick a time today",
+    "leaveAt": "leave by {time}",
+    "noTimes": "No free times left today.",
+    "youFinishAt": "You finish at {time}",
+    "fits": "Fits",
+    "tooLate": "Ends too late",
+    "checkTitle": "Check before you book",
+    "service": "Service",
+    "included": "Included",
+    "starts": "Starts",
+    "finishes": "Finishes",
+    "totalTime": "Total time",
+    "price": "Price",
+    "firstName": "First name",
+    "phone": "Phone number",
+    "book": "Book this appointment",
+    "errorDetails": "Please add your first name and a phone number.",
+    "errorTaken": "Someone just took this time. Please pick another.",
+    "booked": "Booked",
+    "reference": "Booking code {ref}. Pay at the salon.",
+    "hours": "{h} h"
+  },
+  "admin": {
+    "title": "{salon}: bookings",
+    "today": "Today, {date}",
+    "none": "No bookings today yet.",
+    "leavesBy": "has to leave by {time}"
+  }
+}

@@ -1,0 +1,595 @@
+// IERI — database schema. The single schema for the whole platform.
+//
+// Entities follow ARCHITECTURE.md §14. Enums mirror `packages/types/src/enums.ts`
+// one-for-one; change them together.
+//
+// ---------------------------------------------------------------------------
+// KNOWN FOLLOW-UP — PostGIS
+//
+// Provider `latitude`/`longitude` are stored as plain Floats here because
+// Prisma's model layer does not speak PostGIS geometry types. Geo queries —
+// "near me" search, distance ranking, "search this area" viewport bounds
+// (ARCHITECTURE.md §11) — must be written as raw SQL through Prisma's
+// `$queryRaw`, against a `geography(Point, 4326)` column plus a GiST index
+// added in a migration that Prisma does not manage.
+//
+// Do not try to solve this in the skeleton. When the search module is built:
+//   1. enable the `postgis` extension on the Supabase instance,
+//   2. add the geography column + GiST index via a hand-written migration,
+//   3. keep it in sync with lat/lng with a trigger, or write through raw SQL,
+//   4. expose it only via `$queryRaw` in the Search module.
+// ---------------------------------------------------------------------------
+//
+// Conventions:
+// - Timestamps are `DateTime` persisted in UTC. Provider timezone is stored
+//   separately; never encode business logic around a fixed UTC offset (§7).
+// - Money is `Int`, counted in tetri (1 GEL = 100 tetri). Never a float.
+// - Translatable text is `Json` shaped `{ "ka": "...", "en": "..." }`.
+//   Georgian and English are equal; neither is a fallback for the other.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Prisma 7 no longer accepts `url` here. The connection string for Migrate
+// lives in `prisma.config.ts`; the runtime connection is supplied to
+// `PrismaClient` through a driver adapter (see src/prisma/prisma.service.ts).
+datasource db {
+  provider = "postgresql"
+}
+
+// ===========================================================================
+// Enums
+// ===========================================================================
+
+enum UserRole {
+  CUSTOMER
+  PROVIDER_OWNER
+  PROVIDER_STAFF
+  PLATFORM_ADMIN
+}
+
+enum UserStatus {
+  ACTIVE
+  BLOCKED
+}
+
+/// Georgian and English only. Russian is explicitly not part of MVP.
+enum Locale {
+  ka
+  en
+}
+
+/// GEL only. There is no currency selector in MVP.
+enum Currency {
+  GEL
+}
+
+enum ProviderType {
+  SALON
+  BARBER
+  SPA
+  AESTHETIC
+  INDEPENDENT
+}
+
+enum ProviderStatus {
+  DRAFT
+  PENDING_VERIFICATION
+  PUBLISHED
+  SUSPENDED
+}
+
+/// ARCHITECTURE.md §8. PERCENTAGE is supported architecturally, not offered in MVP.
+enum DepositMode {
+  NONE
+  FIXED_AMOUNT
+  PERCENTAGE
+}
+
+/// ARCHITECTURE.md §7 "Suggested Appointment Statuses".
+enum AppointmentStatus {
+  PENDING
+  AWAITING_DEPOSIT
+  CONFIRMED
+  CHECKED_IN
+  COMPLETED
+  CANCELLED_BY_CUSTOMER
+  CANCELLED_BY_PROVIDER
+  NO_SHOW
+}
+
+enum AppointmentSource {
+  MARKETPLACE
+  PROVIDER_MANUAL
+  IMPORT
+  GOOGLE_CALENDAR
+}
+
+/// Deliberately separate from AppointmentStatus (ARCHITECTURE.md §7).
+enum PaymentStatus {
+  PENDING
+  PROCESSING
+  SUCCEEDED
+  FAILED
+  CANCELLED
+  REFUNDED
+  PARTIALLY_REFUNDED
+}
+
+enum BookingHoldStatus {
+  ACTIVE
+  CONVERTED
+  EXPIRED
+  RELEASED
+}
+
+enum ReviewStatus {
+  PENDING_MODERATION
+  PUBLISHED
+  REJECTED
+}
+
+enum NotificationChannel {
+  SMS
+  EMAIL
+  PUSH
+}
+
+enum NotificationStatus {
+  QUEUED
+  SENT
+  DELIVERED
+  FAILED
+}
+
+enum MediaKind {
+  PROVIDER_COVER
+  PROVIDER_GALLERY
+  SPECIALIST_PORTRAIT
+  REVIEW_PHOTO
+}
+
+// ===========================================================================
+// Identity
+// ===========================================================================
+
+/// Authentication is phone + SMS OTP. No password is stored, ever (§5).
+model User {
+  id              String     @id @default(uuid()) @db.Uuid
+  phone           String     @unique
+  phoneVerifiedAt DateTime?
+  name            String?
+  email           String?    @unique
+  role            UserRole   @default(CUSTOMER)
+  status          UserStatus @default(ACTIVE)
+  locale          Locale     @default(ka)
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+
+  ownedProviders    Provider[]     @relation("ProviderOwner")
+  specialistProfile Specialist[]
+  appointments      Appointment[]  @relation("CustomerAppointments")
+  bookingHolds      BookingHold[]
+  reviews           Review[]
+  notifications     Notification[]
+  auditLogs         AuditLog[]
+
+  @@index([phone])
+  @@map("users")
+}
+
+// ===========================================================================
+// Supply
+// ===========================================================================
+
+model Provider {
+  id          String       @id @default(uuid()) @db.Uuid
+  slug        String       @unique
+  ownerUserId String       @db.Uuid
+  name        String
+  type        ProviderType
+  /// { "ka": "...", "en": "..." }
+  description Json?
+
+  address String
+  /// Tbilisi district — Vake, Vera, Saburtalo, Sololaki, Mtatsminda…
+  district String?
+  /// See the PostGIS note at the top of this file. Geo queries use $queryRaw.
+  latitude  Float?
+  longitude Float?
+
+  /// IANA zone, e.g. "Asia/Tbilisi". Never a fixed UTC offset.
+  timezone String   @default("Asia/Tbilisi")
+  currency Currency @default(GEL)
+
+  status     ProviderStatus @default(DRAFT)
+  verifiedAt DateTime?
+
+  /// Provider-level deposit policy; a Service may override it.
+  depositMode   DepositMode @default(NONE)
+  depositAmount Int?
+
+  /// Hours before the appointment at which each action closes.
+  cancellationCutoffHours Int @default(24)
+  rescheduleCutoffHours   Int @default(24)
+  /// Booking policy — ARCHITECTURE.md §6 "Working Hours".
+  bookingLeadTimeMinutes  Int @default(60)
+  maxAdvanceBookingDays   Int @default(60)
+  slotIntervalMinutes     Int @default(15)
+  bufferBeforeMinutes     Int @default(0)
+  bufferAfterMinutes      Int @default(0)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  owner            User              @relation("ProviderOwner", fields: [ownerUserId], references: [id])
+  specialists      Specialist[]
+  services         Service[]
+  workingSchedules WorkingSchedule[]
+  timeOff          TimeOff[]
+  appointments     Appointment[]
+  bookingHolds     BookingHold[]
+  reviews          Review[]
+  media            Media[]
+
+  @@index([status])
+  @@index([district])
+  @@index([latitude, longitude])
+  @@map("providers")
+}
+
+model Specialist {
+  id         String  @id @default(uuid()) @db.Uuid
+  providerId String  @db.Uuid
+  /// Set only when the specialist has their own login (§3).
+  userId     String? @db.Uuid
+  name       String
+  /// { "ka": "...", "en": "..." }
+  bio        Json?
+  isActive   Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  provider         Provider           @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  user             User?              @relation(fields: [userId], references: [id])
+  services         SpecialistService[]
+  workingSchedules WorkingSchedule[]
+  timeOff          TimeOff[]
+  appointments     Appointment[]
+  bookingHolds     BookingHold[]
+  media            Media[]
+
+  @@index([providerId])
+  @@map("specialists")
+}
+
+model Category {
+  id       String  @id @default(uuid()) @db.Uuid
+  parentId String? @db.Uuid
+  slug     String  @unique
+  /// { "ka": "...", "en": "..." } — required; both languages are equal.
+  name     Json
+  isActive Boolean @default(true)
+  sortOrder Int    @default(0)
+
+  parent   Category?  @relation("CategoryTree", fields: [parentId], references: [id])
+  children Category[] @relation("CategoryTree")
+  services Service[]
+
+  @@map("categories")
+}
+
+model Service {
+  id         String @id @default(uuid()) @db.Uuid
+  providerId String @db.Uuid
+  categoryId String @db.Uuid
+  /// { "ka": "...", "en": "..." }
+  name        Json
+  description Json?
+
+  durationMinutes Int
+  /// Sprint 1 (ANATE): whether removing old gel is part of this service. Customers asked this in logs 01 and 07.
+  includesRemoval Boolean @default(false)
+  /// Tetri. ₾50 is 5000. Price and duration are never shown apart.
+  price           Int
+
+  /// Overrides the provider-level policy when set.
+  depositMode   DepositMode @default(NONE)
+  depositAmount Int?
+
+  isActive Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  provider     Provider            @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  category     Category            @relation(fields: [categoryId], references: [id])
+  specialists  SpecialistService[]
+  appointments Appointment[]
+  bookingHolds BookingHold[]
+
+  @@index([providerId])
+  @@index([categoryId])
+  @@map("services")
+}
+
+/// A specialist supports only a subset of a provider's services.
+/// Future-ready: per-specialist price and duration overrides.
+model SpecialistService {
+  specialistId            String @db.Uuid
+  serviceId               String @db.Uuid
+  priceOverride           Int?
+  durationOverrideMinutes Int?
+
+  specialist Specialist @relation(fields: [specialistId], references: [id], onDelete: Cascade)
+  service    Service    @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+
+  @@id([specialistId, serviceId])
+  @@map("specialist_services")
+}
+
+// ===========================================================================
+// Availability
+// ===========================================================================
+
+/// Recurring working period. A row with a null specialistId is the provider's
+/// own opening hours; a row with one is that specialist's schedule.
+model WorkingSchedule {
+  id           String  @id @default(uuid()) @db.Uuid
+  providerId   String  @db.Uuid
+  specialistId String? @db.Uuid
+  /// 0 = Sunday.
+  dayOfWeek    Int
+  /// Wall-clock time in the provider's timezone, "HH:mm".
+  startTime    String
+  endTime      String
+
+  provider   Provider    @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  specialist Specialist? @relation(fields: [specialistId], references: [id], onDelete: Cascade)
+
+  @@index([providerId, dayOfWeek])
+  @@index([specialistId, dayOfWeek])
+  @@map("working_schedules")
+}
+
+/// Non-working interval: holiday, break, sick day.
+model TimeOff {
+  id           String  @id @default(uuid()) @db.Uuid
+  providerId   String  @db.Uuid
+  specialistId String? @db.Uuid
+  startsAt     DateTime
+  endsAt       DateTime
+  reason       String?
+
+  createdAt DateTime @default(now())
+
+  provider   Provider    @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  specialist Specialist? @relation(fields: [specialistId], references: [id], onDelete: Cascade)
+
+  @@index([providerId, startsAt, endsAt])
+  @@index([specialistId, startsAt, endsAt])
+  @@map("time_off")
+}
+
+// ===========================================================================
+// Bookings
+// ===========================================================================
+
+/// The booking record. Service name, price, duration and deposit are
+/// SNAPSHOTTED at booking time so later edits never rewrite history (§7).
+///
+/// FOLLOW-UP: preventing double-booking needs more than these indexes. Add a
+/// btree_gist EXCLUDE constraint on (specialistId, tstzrange(blockStartsAt,
+/// blockEndsAt)) restricted to blocking statuses, via a hand-written migration
+/// — Prisma cannot express exclusion constraints (§7 "Concurrency").
+model Appointment {
+  id           String @id @default(uuid()) @db.Uuid
+  /// Short human-quotable code shown on the confirmation and to support.
+  reference    String @unique
+  customerId   String @db.Uuid
+  providerId   String @db.Uuid
+  specialistId String @db.Uuid
+  serviceId    String @db.Uuid
+
+  /// Snapshots — never read through to the live Service for a past booking.
+  serviceNameSnapshot     Json
+  priceSnapshot           Int
+  durationSnapshotMinutes Int
+  depositModeSnapshot     DepositMode
+  depositAmountSnapshot   Int?
+
+  startsAt DateTime
+  endsAt   DateTime
+  /// Buffer boundaries — the interval actually blocked on the calendar.
+  blockStartsAt DateTime
+  blockEndsAt   DateTime
+
+  status AppointmentStatus @default(PENDING)
+  source AppointmentSource @default(MARKETPLACE)
+
+  /// Sprint 1 (ANATE): the time the customer said she has to leave by, for the north star.
+  customerDeadlineAt DateTime?
+
+  customerNote String?
+  providerNote String?
+
+  cancelledAt        DateTime?
+  cancellationReason String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  customer   User       @relation("CustomerAppointments", fields: [customerId], references: [id])
+  provider   Provider   @relation(fields: [providerId], references: [id])
+  specialist Specialist @relation(fields: [specialistId], references: [id])
+  service    Service    @relation(fields: [serviceId], references: [id])
+  payments   Payment[]
+  review     Review?
+
+  @@index([providerId, startsAt])
+  @@index([specialistId, blockStartsAt, blockEndsAt])
+  @@index([customerId, startsAt])
+  @@index([status])
+  @@map("appointments")
+}
+
+/// Short-lived slot reservation held while deposit checkout completes.
+/// Expired holds release the slot. Redis may front this later, but Postgres
+/// stays the source of truth — never Redis (ARCHITECTURE.md §12).
+model BookingHold {
+  id           String  @id @default(uuid()) @db.Uuid
+  providerId   String  @db.Uuid
+  specialistId String  @db.Uuid
+  serviceId    String  @db.Uuid
+  customerId   String? @db.Uuid
+
+  startsAt DateTime
+  endsAt   DateTime
+
+  status    BookingHoldStatus @default(ACTIVE)
+  expiresAt DateTime
+
+  createdAt DateTime @default(now())
+
+  provider   Provider   @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  specialist Specialist @relation(fields: [specialistId], references: [id], onDelete: Cascade)
+  service    Service    @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  customer   User?      @relation(fields: [customerId], references: [id])
+  payments   Payment[]
+
+  @@index([specialistId, startsAt, endsAt])
+  @@index([status, expiresAt])
+  @@map("booking_holds")
+}
+
+// ===========================================================================
+// Money
+// ===========================================================================
+
+/// A deposit transaction. The deposit belongs economically to the PROVIDER —
+/// it is not platform revenue. Service price, customer deposit, provider
+/// settlement and platform fee stay separate concepts (ARCHITECTURE.md §8).
+model Payment {
+  id            String  @id @default(uuid()) @db.Uuid
+  appointmentId String? @db.Uuid
+  bookingHoldId String? @db.Uuid
+
+  /// Tetri.
+  amount         Int
+  currency       Currency      @default(GEL)
+  status         PaymentStatus @default(PENDING)
+  refundedAmount Int           @default(0)
+
+  /// Which payment provider handled this, behind the internal interface.
+  /// The first Georgian integration is chosen after settlement requirements
+  /// are confirmed — do not hardcode one anywhere else.
+  providerKey           String
+  providerTransactionId String?
+  /// Raw webhook events, retained for reconciliation and dispute handling.
+  webhookEvents         Json?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  appointment Appointment? @relation(fields: [appointmentId], references: [id])
+  bookingHold BookingHold? @relation(fields: [bookingHoldId], references: [id])
+
+  @@index([appointmentId])
+  @@index([status])
+  @@index([providerTransactionId])
+  @@map("payments")
+}
+
+// ===========================================================================
+// Feedback and operations
+// ===========================================================================
+
+/// Only a customer with a COMPLETED booking may review, one review per
+/// booking. MVP reviews apply to the provider, not the specialist (§5).
+model Review {
+  id            String @id @default(uuid()) @db.Uuid
+  appointmentId String @unique @db.Uuid
+  providerId    String @db.Uuid
+  customerId    String @db.Uuid
+
+  /// 1–5.
+  rating  Int
+  comment String?
+  status  ReviewStatus @default(PENDING_MODERATION)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  appointment Appointment @relation(fields: [appointmentId], references: [id])
+  provider    Provider    @relation(fields: [providerId], references: [id])
+  customer    User        @relation(fields: [customerId], references: [id])
+
+  @@index([providerId, status])
+  @@map("reviews")
+}
+
+model Media {
+  id           String    @id @default(uuid()) @db.Uuid
+  providerId   String    @db.Uuid
+  specialistId String?   @db.Uuid
+  kind         MediaKind
+  url          String
+  /// Descriptive alt text, { "ka": "...", "en": "..." }.
+  /// A provider without photos gets a typographic fallback tile — never a
+  /// stock image, never a broken-image icon (DESIGN.md §31).
+  alt          Json?
+  width        Int?
+  height       Int?
+  sortOrder    Int       @default(0)
+
+  createdAt DateTime @default(now())
+
+  provider   Provider    @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  specialist Specialist? @relation(fields: [specialistId], references: [id], onDelete: SetNull)
+
+  @@index([providerId, kind, sortOrder])
+  @@map("media")
+}
+
+/// Delivery history. Sending is asynchronous through a queue so an SMS outage
+/// can never break a booking (ARCHITECTURE.md §10).
+model Notification {
+  id      String              @id @default(uuid()) @db.Uuid
+  userId  String              @db.Uuid
+  channel NotificationChannel @default(SMS)
+  /// Translation key, e.g. "booking.confirmed". Never a rendered string.
+  templateKey String
+  payload     Json?
+  status      NotificationStatus @default(QUEUED)
+  sentAt      DateTime?
+  failureReason String?
+
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, createdAt])
+  @@index([status])
+  @@map("notifications")
+}
+
+/// Sensitive admin and provider changes. Every booking and payment should be
+/// traceable across logs by ID (ARCHITECTURE.md §16, §17).
+model AuditLog {
+  id          String  @id @default(uuid()) @db.Uuid
+  actorUserId String? @db.Uuid
+  action      String
+  entityType  String
+  entityId    String
+  metadata    Json?
+
+  createdAt DateTime @default(now())
+
+  actor User? @relation(fields: [actorUserId], references: [id])
+
+  @@index([entityType, entityId])
+  @@index([actorUserId, createdAt])
+  @@map("audit_logs")
+}
