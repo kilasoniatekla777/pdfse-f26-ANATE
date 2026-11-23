@@ -73,6 +73,16 @@ export function BookingFlow(props: {
       });
   }, [service, props.starts, props.closesAt, props.taken, props.bufferAfterMinutes, props.timeZone, deadline]);
 
+  // Leave-by choices every 15 minutes, from the next quarter hour (salon time) to 23:45.
+  const deadlineChoices = useMemo(() => {
+    const now = minutesOf(fmtClock(Date.now(), props.timeZone));
+    const out: string[] = [];
+    for (let m = Math.ceil((now + 1) / 15) * 15; m < 24 * 60; m += 15) {
+      out.push(`${String(Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`);
+    }
+    return out;
+  }, [props.timeZone]);
+
   function chooseService(s: FlowService) {
     setService(s);
     setSlot(null);
@@ -170,12 +180,26 @@ export function BookingFlow(props: {
         {back("service")}
         <h2 className="type-h3 text-ink-900">{t("leaveBy")}</h2>
         <p className="type-body-s text-ink-600">{t("leaveByHint")}</p>
-        <input
-          type="time"
-          value={deadline}
-          onChange={(e) => setDeadline(e.target.value)}
-          className="type-body-l rounded-input border border-border-strong bg-surface-1 px-4 py-3 text-ink-900"
-        />
+        {/* Buttons, not <input type="time"> or <select>: in the Week 7 phone walk the phone's time
+            picker kept the current time (IE-B1239E) and its dropdown kept the first option
+            (IE-20D039, IE-1C90D0), so every slot showed "ends too late". A tap always registers. */}
+        <div className="grid grid-cols-4 gap-2">
+          {deadlineChoices.map((c) => (
+            <button
+              key={c}
+              type="button"
+              onClick={() => setDeadline(c)}
+              aria-pressed={deadline === c}
+              className={cn(
+                "type-body-l rounded-input border px-2 py-3 text-center motion-fast transition-colors",
+                deadline === c ? "border-clay-600 bg-clay-50 text-ink-900" : "border-border-strong bg-surface-1 text-ink-900",
+              )}
+            >
+              {c}
+            </button>
+          ))}
+        </div>
+        {deadline && <p className="type-h3 text-center text-ink-900">{t("youLeaveAt", { time: deadline })}</p>}
         <Button variant="primary" size="lg" isFullWidth disabled={!deadline} onClick={showTimes}>
           {t("showTimes")}
         </Button>

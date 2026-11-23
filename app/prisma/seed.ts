@@ -1,5 +1,5 @@
 // Seeds one fictional test salon for Sprint 1: one specialist, three nail services,
-// open 10:00 to 20:00 every day. Safe to run twice. Run: npm run db:seed
+// open 09:00 to 23:30 every day. Safe to run twice. Run: npm run db:seed
 import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaClient } from "@prisma/client";
 
@@ -9,7 +9,10 @@ for (const file of [".env.local", ".env"]) {
   } catch {}
 }
 
-const db = new PrismaClient({ adapter: new PrismaPg({ connectionString: process.env.DATABASE_URL }) });
+const url = new URL(process.env.DATABASE_URL ?? "");
+const schema = url.searchParams.get("schema") ?? undefined;
+url.searchParams.delete("schema");
+const db = new PrismaClient({ adapter: new PrismaPg({ connectionString: url.toString() }, { schema }) });
 
 async function main() {
   const owner = await db.user.upsert({
@@ -74,8 +77,8 @@ async function main() {
     data: [0, 1, 2, 3, 4, 5, 6].map((dayOfWeek) => ({
       providerId: provider.id,
       dayOfWeek,
-      startTime: "10:00",
-      endTime: "20:00",
+      startTime: "09:00",
+      endTime: "23:30",
     })),
   });
 

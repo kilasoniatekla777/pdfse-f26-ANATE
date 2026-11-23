@@ -47,8 +47,8 @@
     "hoursMinutes": "{h} h {m} min",
     "removalIncluded": "Removing old gel is included.",
     "removalNotIncluded": "Does not include removing old gel.",
-    "leaveBy": "What time do you have to leave by?",
-    "leaveByHint": "We'll show which times finish before then.",
+    "leaveBy": "When do you have to be out of the salon?",
+    "leaveByHint": "Pick the time you need to leave for your next plan, not when you want to start. We'll show which appointments finish before it.",
     "showTimes": "Show times",
     "pickTime": "Pick a time today",
     "leaveAt": "leave by {time}",
@@ -70,7 +70,8 @@
     "errorTaken": "Someone just took this time. Please pick another.",
     "booked": "Booked",
     "reference": "Booking code {ref}. Pay at the salon.",
-    "hours": "{h} h"
+    "hours": "{h} h",
+    "youLeaveAt": "You leave at {time}"
   },
   "admin": {
     "title": "{salon}: bookings",
