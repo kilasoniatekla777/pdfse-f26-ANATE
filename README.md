@@ -8,8 +8,8 @@ IERI is a proposed beauty-service discovery and booking product for Tbilisi. Dis
 | Link | Status |
 |---|---|
 | Prototype | [v1, clickable on a phone](https://raw.githack.com/kilasoniatekla777/pdfse-f26-ANATE/main/02-design/prototype/v1/index.html) · [source](02-design/prototype/v1/index.html) |
-| Live product | coming Week 7 |
-| Analytics dashboard (PostHog) | coming Week 7 |
+| Live product | [ieri-anate.vercel.app/ka/s/test-salon](https://ieri-anate.vercel.app/ka/s/test-salon) (test salon, fictional data) |
+| Analytics dashboard (PostHog) | [IERI north star, public](https://eu.posthog.com/shared/Gu8qn9_XVW-FpjLrmJnUEudpndTazQ) |
 | 12-month model | coming Week 12 |
 | Pitch deck | coming Week 13 |
 | One-pager | coming Week 15 |
