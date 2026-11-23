@@ -57,4 +57,4 @@ The two counts and the exact query are in the Gate reconcile block of the schema
 
 ## 4. My person this week
 
-**The field-week person I am responsible for:** Customer-11, a nail customer I interview this week (log 11) · **how and when the link reaches them:** in person after the interview, on her phone, with `?src=link`, by Friday 27 November.
+**The field-week person I am responsible for:** Customer-11, a nail customer and friend of my mother, from [log 11](../../01-discovery/interview-logs/11-nail-customer-tbilisi.md) (I asked, Anano logged, 23 Nov) · **how and when the link reaches them:** a WhatsApp message with the live link ending `?src=whatsapp`, on Wednesday 25 November. She already booked once on the live app right after the interview (IE-3F9648), but the time-picker bug saved her leave-by time wrong, so I want to see her book again with the fixed screen.

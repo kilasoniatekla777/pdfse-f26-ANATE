@@ -12,7 +12,7 @@ Our definition of done (from `sprint-1.md`): merged to `main`, deployed at the p
 | S1 Nino opens the salon link | AK | Yes | Opened on a phone with mobile data by AK; `customer_opens_salon_page` with `source` = link in Activity |
 | S2 Nino chooses the full service | GT | Yes | `customer_selects_service` seen from the phone, `includes_removal` true and `duration_min` 75 for removal + gel |
 | S3 Nino sets her deadline | TK | No, sent back three times | Walk 1: the phone's time picker kept the current time (IE-B1239E saved 18:04, not 23:00). Walk 2: the dropdown we put instead kept its first time (IE-20D039, IE-1C90D0). Walk 3: with time buttons, the walker tapped 18:45, the first one (IE-FEE0ED). So the field now saves what you tap, but the question "What time do you have to leave by?" is not clear enough. Moves to S3b. |
-| S4 Nino books a slot that fits (north star) | TK | Partly | Booking works on a phone and `customer_books_fitting_appointment` fires (IE-FEE0ED). But only 1 of our 7 test bookings fits its deadline (IE-ECEA56), because of S3. |
+| S4 Nino books a slot that fits (north star) | TK | Partly | Booking works on a phone and `customer_books_fitting_appointment` fires (IE-FEE0ED). But only 1 of the 8 bookings on 23 Nov fits its deadline (IE-ECEA56), because of S3. One of the 8 is not ours: IE-3F9648 was Customer-11, booking on her own phone after interview 11, and the time-picker bug saved her leave-by as 12:00. |
 | S5 Slot blocked, salon sees the booking | GT | Partly | Booked times disappear from the list on the phone and `system_blocks_slot` fires from the server. Nobody has walked the salon's private page or tried a double booking on a phone yet. |
 
 **Slip rule:** did not fire. S5's private list is built; it only needs its walk (S5b).
@@ -54,7 +54,7 @@ Slipped from Sprint 1 (Thu 26 Nov). TK gives GT the private link in person, not 
 
 ### F1 · The link reaches our people · owner GT, TK · reviewer AK · 2 h
 
-GT sends to Customer-07, 08 and 10 on Thursday (1 h). TK sends to Customer-11 after her interview this week (1 h). Each link ends in `?src=` the channel it went on (`whatsapp` or `link`). Done when everyone in the table below has the link and the Opened column is filled.
+GT sends to Customer-07, 08 and 10 on Thursday (1 h). TK sends to Customer-11 on Wednesday (1 h). Each link ends in `?src=` the channel it went on (`whatsapp` or `link`). Done when everyone in the table below has the link and the Opened column is filled.
 
 ### R4 · Recount before Lab 8 · owner TK · reviewer AK · 1 h
 
@@ -73,7 +73,7 @@ Real people from our logs, not classmates. Code names only. Each gets the produc
 | Customer-07, booked a repair and a fresh set at short notice | Log 07 (agreed to be contacted again) | WhatsApp message, `?src=whatsapp` | GT, Thu 26 Nov | |
 | Customer-08, pianist, same technician as 07 | Log 08 (referral from 07) | WhatsApp message, `?src=whatsapp` | GT, Thu 26 Nov | |
 | Customer-10, pianist who films her hands | Log 10 | Phone call, then the link on WhatsApp, `?src=whatsapp` | GT, Thu 26 Nov | |
-| Customer-11, nail customer (TK's interview this week) | Log 11 | In person after the interview, link on her phone, `?src=link` | TK, Fri 27 Nov | |
+| Customer-11, nail customer, friend of TK's mother | Log 11 (23 Nov; booked IE-3F9648 on the live app after the interview) | WhatsApp message with the live link, `?src=whatsapp` | TK, Wed 25 Nov | |
 
 We left out Customer-09: she has not said yes to her log being used yet (see log 09).
 
