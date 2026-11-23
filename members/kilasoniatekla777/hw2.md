@@ -19,7 +19,7 @@ Live product: https://ieri-anate.vercel.app/ka/s/test-salon · Dashboard: [IERI 
 
 ## 2. Pattern journal, Weeks 5 to 7
 
-I did not write Weeks 5 and 6 in their own week. My first drafts were only on my laptop and were lost, so I wrote all three after the Week 7 lab.
+My Week 5 and 6 entries were saved only in my local copy of the repo and were lost before I committed them. I rewrote them after the Week 7 lab from the work that is on GitHub: the prototype and north star ([912061a](https://github.com/kilasoniatekla777/pdfse-f26-ANATE/commit/912061a)), the test sessions ([c42165d](https://github.com/kilasoniatekla777/pdfse-f26-ANATE/commit/c42165d)) and the MVP boundary and Sprint 1 ([9c53157](https://github.com/kilasoniatekla777/pdfse-f26-ANATE/commit/9c53157)).
 
 ### Week 5 · One metric that matters
 
