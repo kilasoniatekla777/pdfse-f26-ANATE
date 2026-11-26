@@ -18,7 +18,7 @@ Your metric is only as good as your instrumentation. Every row here becomes one 
 | Activation (precursor) | `customer_sets_deadline` | customer | customer_id, salon_id, deadline_time, slots_shown, slots_fitting | TK | yes |
 | Activation (system) | `system_blocks_slot` | system | salon_id, booking_id, slot_start, duration_min, ms_since_booking | GT | yes |
 | Activation (failure path) | `customer_messages_salon_before_booking` | customer | customer_id, salon_id, step (service, times, summary) | TK | no: there is no message button in Sprint 1; owner TK, Sprint 2 |
-| Retention | `customer_books_repeat_appointment` | customer | customer_id, booking_id, days_since_last_booking | AK | no: not built yet; owner AK, Sprint 2 |
+| Retention | `customer_books_repeat_appointment` | customer | customer_id, booking_id, days_since_last_booking | AK | no: implemented locally; pending production verification |
 
 Referral and Revenue are empty on purpose. Nothing can be referred or paid for before the real product exists.
 
@@ -27,6 +27,7 @@ Referral and Revenue are empty on purpose. Nothing can be referred or paid for b
 - One name per event, one spelling, lowercase with underscores.
 - `customer_id` on every event. It is an id our app makes up. No names, phone numbers or message text anywhere in analytics.
 - The north star event is fired by the customer, because the customer receives the value and is who our problem statement is about.
+- `customer_books_repeat_appointment` fires only after a successful new booking when the same customer ID has an earlier appointment in `PENDING`, `AWAITING_DEPOSIT`, `CONFIRMED`, `CHECKED_IN`, or `COMPLETED` status. These statuses hold a slot or record a completed visit. `CANCELLED_BY_CUSTOMER`, `CANCELLED_BY_PROVIDER`, and `NO_SHOW` do not qualify. The prior appointment may be at any salon; `days_since_last_booking` is the number of whole 24-hour periods between the two bookings' `createdAt` timestamps (0 for a same-day repeat).
 - `customer_messages_salon_before_booking` stays in the schema because it is our riskiest assumption failing: if customers still need to ask the salon how long it takes, this number goes up while the north star stays flat.
 
 ## Reconcile plan

@@ -86,6 +86,7 @@ export async function POST(req: Request) {
   }
 
   let appointment;
+  let previousBookedAt: Date | null = null;
   try {
     appointment = await db.$transaction(
       async (tx) => {
@@ -107,7 +108,14 @@ export async function POST(req: Request) {
           create: { phone, name, role: "CUSTOMER" },
         });
 
-        return tx.appointment.create({
+        // Appointments that hold a slot, plus completed visits, count as a prior booking.
+        const previous = await tx.appointment.findFirst({
+          where: { customerId: customer.id, status: { in: [...BLOCKING_STATUSES, "COMPLETED"] } },
+          orderBy: { createdAt: "desc" },
+          select: { createdAt: true },
+        });
+
+        const created = await tx.appointment.create({
           data: {
             reference: reference(),
             customerId: customer.id,
@@ -128,9 +136,12 @@ export async function POST(req: Request) {
             source: "MARKETPLACE",
           },
         });
+        return { created, previousBookedAt: previous?.createdAt ?? null };
       },
       { isolationLevel: Prisma.TransactionIsolationLevel.Serializable },
     );
+    previousBookedAt = appointment.previousBookedAt;
+    appointment = appointment.created;
   } catch (err) {
     const serialization = err instanceof Prisma.PrismaClientKnownRequestError && err.code === "P2034";
     if (err instanceof SlotTaken || serialization) {
@@ -164,5 +175,13 @@ export async function POST(req: Request) {
     finish: clock(endsAt, tz),
     finishes_before_deadline: minutesSpare >= 0,
     minutes_spare: minutesSpare,
+    repeat_booking: previousBookedAt
+      ? {
+          days_since_last_booking: Math.max(
+            0,
+            Math.floor((appointment.createdAt.getTime() - previousBookedAt.getTime()) / 86_400_000),
+          ),
+        }
+      : null,
   });
 }

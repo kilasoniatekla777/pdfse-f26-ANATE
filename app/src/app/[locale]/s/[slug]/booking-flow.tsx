@@ -137,6 +137,13 @@ export function BookingFlow(props: {
       finishes_before_deadline: data.finishes_before_deadline,
       minutes_spare: data.minutes_spare,
     });
+    if (data.repeat_booking) {
+      posthog.capture("customer_books_repeat_appointment", {
+        customer_id: data.customer_id,
+        booking_id: data.booking_id,
+        days_since_last_booking: data.repeat_booking.days_since_last_booking,
+      });
+    }
     setBooked({ reference: data.reference, start: data.start, finish: data.finish, serviceName: service.name });
     setStep("done");
   }

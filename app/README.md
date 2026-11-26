@@ -31,6 +31,7 @@ Vercel → import the team repo → Root Directory `app` → add every variable 
 | `customer_selects_service` | browser, on tapping a service |
 | `customer_sets_deadline` | browser, on "Show times" |
 | `customer_books_fitting_appointment` ★ | browser, after `/api/bookings` returns OK |
+| `customer_books_repeat_appointment` | browser, after `/api/bookings` returns OK with repeat-booking metadata |
 | `system_blocks_slot` | server, after the booking is written (`api/bookings/route.ts`) |
 
-Not wired yet: `customer_messages_salon_before_booking` (no "message the salon" button in Sprint 1) and `customer_books_repeat_appointment` (Sprint 2).
+Not wired yet: `customer_messages_salon_before_booking` (no "message the salon" button in Sprint 1). The repeat event is wired locally but stays pending in the schema until production verification.
