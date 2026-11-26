@@ -1,0 +1,221 @@
+/*
+ * IERI design tokens — the single source of style values for the whole platform.
+ *
+ * Transcribed from docs/DESIGN.md §22. Values are FINAL and EXACT: reproduce
+ * them to the value, do not round, do not invent neighbours.
+ *
+ * This file is the ONLY place in the repo where a literal hex, px radius,
+ * shadow or duration may be written. A literal design value anywhere in
+ * apps/** is a bug (CLAUDE.md — "Tokens only"). If a value you need is not
+ * here, that is a design question — ask, do not invent.
+ *
+ * Tailwind v4's `@theme` emits every entry below as a CSS custom property AND
+ * generates the matching utility class, so the CSS-variable pipeline and the
+ * Tailwind theme extension come from this one declaration.
+ */
+
+@theme {
+  /* ---------------------------------------------------------------------
+   * Colour — DESIGN.md §22 "Colour"
+   * Body text ≥4.5:1, large text ≥3:1, borders and focus rings ≥3:1.
+   * Never ink-400 on surface-2.
+   * ------------------------------------------------------------------- */
+
+  /* Brand */
+  --color-clay-700: #55392b; /* Pressed brand states */
+  --color-clay-600: #6b4a38; /* PRIMARY. Buttons, active nav, availability line, logo */
+  --color-clay-400: #b08968; /* Rating stars, small rules */
+  --color-clay-200: #c9a88f; /* Selected borders, focus on brand surfaces */
+  --color-clay-100: #f0e7df; /* Chips, quiet brand fills */
+  --color-clay-50: #f7f0ea; /* Selected tile background */
+
+  /* Surfaces */
+  --color-sand-200: #ede6e0; /* App canvas behind content (desktop) */
+  --color-surface-0: #fcfaf8; /* Page surface */
+  --color-surface-1: #fffdfb; /* Cards, panels, sheets, inputs */
+  --color-surface-2: #f5efe9; /* Inset areas, table headers, skeletons */
+
+  /* Borders */
+  --color-border-strong: #e3d8ce; /* Card, container and input borders */
+  --color-border-soft: #eae1d9; /* Dividers, row separators */
+  --color-border-faint: #dfd4c9; /* Grabbers, inline separators */
+
+  /* Ink */
+  --color-ink-900: #1f1a17; /* Headings, names, prices */
+  --color-ink-700: #3a322c; /* Body copy, reviews */
+  --color-ink-600: #5a514a; /* Secondary body, nav, values */
+  --color-ink-400: #8c7f76; /* Metadata — never below 13px, never sole-source */
+  --color-ink-200: #c7bcb2; /* Disabled, struck-through slots */
+  --color-on-clay: #fcfaf8; /* Text on clay */
+
+  /* Semantic — always paired with an icon AND a word, never colour alone */
+  --color-success-600: #3f6b4e;
+  --color-success-tint: #ebf1ec;
+  --color-warning-600: #9a6b24;
+  --color-warning-tint: #f6eee1;
+  --color-error-600: #9b3b32;
+  --color-error-tint: #f6e9e7;
+  --color-info-600: #3d5a70;
+  --color-info-tint: #e9eff3;
+  --color-info-dot: #7b93a8;
+
+  /* Map tiles */
+  --color-map-land: #f2ede7;
+  --color-map-water: #dee7ea;
+  --color-map-park: #e4e8de;
+
+  /* ---------------------------------------------------------------------
+   * Typography — DESIGN.md §21 + §22 "Typography"
+   *
+   * `--font-ui` and `--font-display` are the ones components use. They are
+   * re-pointed at the Georgian stacks under `:lang(ka)` in styles.css, so a
+   * component never needs to know which language it is rendering.
+   * ------------------------------------------------------------------- */
+
+  --font-ui-latin: "Jost", "Helvetica Neue", system-ui, sans-serif;
+  --font-ui-georgian: "Noto Sans Georgian", "BPG Arial", "Jost", sans-serif;
+  --font-display-latin: "Playfair Display", Georgia, serif;
+  --font-display-georgian: "Noto Serif Georgian", "Noto Sans Georgian", serif;
+
+  --font-ui: var(--font-ui-latin);
+  --font-display: var(--font-display-latin);
+
+  /*
+   * Type scale. `--text-*` is the MOBILE size (mobile-first); `--text-*-lg`
+   * is the desktop size. Use the semantic `type-*` utilities below rather
+   * than these raw tokens — they carry family, weight, line height, tracking
+   * and the Georgian overrides as one unit.
+   */
+  --text-display-xl: 2.25rem; /* 36 mobile */
+  --text-display-xl-lg: 4rem; /* 64 desktop */
+  --text-h1: 1.75rem; /* 28 / 40 */
+  --text-h1-lg: 2.5rem;
+  --text-h2: 1.5rem; /* 24 / 30 */
+  --text-h2-lg: 1.875rem;
+  --text-h3: 1.25rem; /* 20 / 22 — card title, provider name */
+  --text-h3-lg: 1.375rem;
+  --text-h4: 1.125rem; /* 18 / 19 — service name */
+  --text-h4-lg: 1.1875rem;
+  --text-body-l: 1rem; /* 16 / 17 */
+  --text-body-l-lg: 1.0625rem;
+  --text-body: 0.9375rem; /* 15 */
+  --text-body-s: 0.875rem; /* 14 */
+  --text-caption: 0.8125rem; /* 13 — ink-400 floor */
+  --text-micro: 0.625rem; /* 10 */
+  --text-button: 0.75rem; /* 12 */
+  --text-nav: 0.75rem; /* 12 / 13 */
+  --text-nav-lg: 0.8125rem;
+  --text-price-inline: 1.25rem; /* 20 / 22 */
+  --text-price-inline-lg: 1.375rem;
+  --text-price-total: 1.375rem; /* 22 / 26 */
+  --text-price-total-lg: 1.625rem;
+
+  /* Tracking */
+  --tracking-display: -0.01em;
+  --tracking-micro: 0.16em; /* Latin caps only */
+  --tracking-button: 0.14em; /* Latin caps only */
+  --tracking-nav: 0.12em; /* Latin caps only */
+  --tracking-georgian-max: 0.04em; /* Hard ceiling for Georgian — §21 */
+
+  /* Measure */
+  --measure-max: 68ch;
+
+  /* ---------------------------------------------------------------------
+   * Spacing — DESIGN.md §22 "Spacing". Base 4px.
+   * ------------------------------------------------------------------- */
+
+  --spacing: 0.25rem; /* Tailwind's 4px base unit → spacing-2 = 8px, etc. */
+
+  --space-page-mobile: 1.25rem; /* 20 */
+  --space-page-desktop: 2.5rem; /* 40 */
+  --space-section-mobile: 2.5rem; /* 40 */
+  --space-section-desktop: 4rem; /* 64 */
+  --space-card-mobile: 1rem; /* 14–16 */
+  --space-card-desktop: 1.5rem; /* 20–26 */
+  --space-grid-gap-mobile: 0.75rem; /* 12 */
+  --space-grid-gap-desktop: 1.25rem; /* 20 */
+  --space-row-mobile: 0.875rem; /* 14 */
+  --space-row-desktop: 1.375rem; /* 22 */
+
+  --size-header-mobile: 3.5rem; /* 56 + safe area */
+  --size-header-desktop: 4.75rem; /* 76 */
+  --size-bottom-nav: 4.875rem; /* 78 + safe area */
+  --size-sticky-bar: 5.5rem; /* 88 + safe area */
+  --size-sidebar: 15.5rem; /* 248 */
+  --size-content-max: 90rem; /* 1440 */
+  --size-tap-min: 2.75rem; /* 44 — accessibility floor, §26 */
+
+  /* Button heights and horizontal padding (22–34px) — DESIGN.md §23 */
+  --size-button-sm: 2.5rem; /* 40 */
+  --size-button-md: 2.875rem; /* 46 */
+  --size-button-lg: 3.25rem; /* 52 */
+  --size-button-xl: 3.375rem; /* 54 — mobile sticky */
+  --space-button-sm: 1.375rem; /* 22 */
+  --space-button-md: 1.625rem; /* 26 */
+  --space-button-lg: 1.875rem; /* 30 */
+  --space-button-xl: 2.125rem; /* 34 */
+
+  /* ---------------------------------------------------------------------
+   * Radius — DESIGN.md §22 "Radius"
+   * Never exceed 16px on a rectangular container; never mix two radii in one
+   * component.
+   * ------------------------------------------------------------------- */
+
+  --radius-pill: 999px; /* Buttons, chips, tabs */
+  --radius-input: 0.625rem; /* 10 — inputs, slots, small thumbs */
+  --radius-card: 0.875rem; /* 14 */
+  --radius-container: 1rem; /* 16 — modals, panels */
+  --radius-sheet: 1.375rem; /* 22 — top corners only */
+
+  /* ---------------------------------------------------------------------
+   * Shadows — DESIGN.md §22 "Shadows"
+   * Warm-tinted only. Shadow means elevation, never decoration.
+   * Cards in a grid carry NO shadow — 1px border only.
+   * ------------------------------------------------------------------- */
+
+  --shadow-card: 0 14px 36px rgba(31, 26, 23, 0.07);
+  --shadow-float: 0 18px 40px rgba(31, 26, 23, 0.18);
+  --shadow-overlay: 0 26px 60px rgba(31, 26, 23, 0.22);
+  --shadow-sticky: 0 -10px 34px rgba(31, 26, 23, 0.14);
+  --shadow-dropdown: 0 8px 24px rgba(31, 26, 23, 0.12);
+
+  /* ---------------------------------------------------------------------
+   * Breakpoints — DESIGN.md §22 "Breakpoints". Min-width queries only.
+   * sm 0–639 (4 cols) · md 640–1023 (8) · lg 1024–1439 (12) · xl 1440+
+   * ------------------------------------------------------------------- */
+
+  --breakpoint-*: initial;
+  --breakpoint-md: 40rem; /* 640 */
+  --breakpoint-lg: 64rem; /* 1024 */
+  --breakpoint-xl: 90rem; /* 1440 */
+
+  /* ---------------------------------------------------------------------
+   * Motion — DESIGN.md §22 "Motion" + §30
+   * 400ms is the ceiling. Animate transform and opacity only.
+   * Only skeletons loop — a 1.2s shimmer on surface-2.
+   * ------------------------------------------------------------------- */
+
+  --duration-fast: 90ms; /* Slot select, press (scale .985), toggles */
+  --duration-base: 180ms; /* Booking step, save, filter cross-fade */
+  --duration-slow: 260ms; /* Bottom sheet */
+  --duration-skeleton: 1200ms;
+
+  --ease-fast: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-base: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-slow: cubic-bezier(0.32, 0.72, 0, 1);
+
+  --scale-press: 0.985;
+
+  /* ---------------------------------------------------------------------
+   * Z-index — DESIGN.md §22 "Motion"
+   * ------------------------------------------------------------------- */
+
+  --z-base: 0;
+  --z-sticky: 100;
+  --z-header: 200;
+  --z-dropdown: 300;
+  --z-sheet: 400;
+  --z-modal: 500;
+  --z-toast: 600;
+  --z-tooltip: 700;
+}

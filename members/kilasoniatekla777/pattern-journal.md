@@ -25,3 +25,17 @@ I asked in interviews 04, 05 and 06. None of the three raised waiting for a free
 ## Week 4 · The prototype is the conversation
 
 My delivery role this week is getting Milestone 1 tagged and our submissions in. So far I have put my homework file into the repo ([786c9fc](https://github.com/kilasoniatekla777/pdfse-f26-ANATE/commit/786c9fc)) and restored our pattern journals, which had been deleted by accident before anyone committed. Our problem statement and prototype plan are still to be written. Our strongest pattern (P1, logs 01, 02, 03 and 06) points the prototype at the moment a customer learns what is included and when the whole service will finish, not at finding a free slot. [patterns analysis](../../01-discovery/synthesis/patterns-analysis.md)
+
+My Week 5 and 6 entries were saved only in my local copy of the repo and were lost before I committed them. I rewrote them after the Week 7 lab from the work that is on GitHub: the prototype and north star ([912061a](https://github.com/kilasoniatekla777/pdfse-f26-ANATE/commit/912061a)), the test sessions ([c42165d](https://github.com/kilasoniatekla777/pdfse-f26-ANATE/commit/c42165d)) and the MVP boundary and Sprint 1 ([9c53157](https://github.com/kilasoniatekla777/pdfse-f26-ANATE/commit/9c53157)).
+
+## Week 5 · One metric that matters
+
+I picked the north star: bookings that finish before the customer's own deadline. We rejected salon pages viewed: that number goes up even if the customer still has to message the salon to ask how long it takes, so her problem is the same size. Beyond my lane: I built prototype v1 as one HTML page instead of waiting for the design files. My hack: one fixed 14:30 deadline in the task, so every session tested the same thing.
+
+## Week 6 · The smallest complete journey
+
+The biggest cut was most of Anano's IERI repo: the API, both admin apps, SMS login, maps. It was real work, but the journey only needs five steps, and one Next.js app is one deploy instead of two. I wrote the cut list and the MVP boundary. Beyond my lane: I built the code for the whole journey in [9c53157](https://github.com/kilasoniatekla777/pdfse-f26-ANATE/commit/9c53157), although S1, S2 and S5 were Anano's and Guja's stories. My hack: I tested the booking route on a throwaway local database before we had Supabase, booking the same slot twice to see the refusal.
+
+## Week 7 · Ship to learn
+
+Anano's walk taught me more than all my testing on the laptop. On my screen the time field worked; on her phone it kept the current time, then the dropdown kept its first option, and when both were fixed she still tapped the wrong time. I had thought this was a bug to fix, but it is a question people read differently than we do. Beyond my lane: I did the deploy and the reconcile. My hack: `?team=1`, so our own clicks stop counting without logins.
