@@ -58,6 +58,11 @@ export async function POST(req: Request) {
   const blockEndsAt = new Date(endsAt.getTime() + provider.bufferAfterMinutes * 60000);
 
   const today = todayIn(tz);
+  const deadlineAt = zonedTime(today, body.deadline, tz);
+  if (endsAt > deadlineAt) {
+    return NextResponse.json({ error: "deadline_exceeded" }, { status: 409 });
+  }
+  const minutesSpare = Math.round((deadlineAt.getTime() - endsAt.getTime()) / 60000);
   const earliest = Date.now() + provider.bookingLeadTimeMinutes * 60000;
   const schedule = await db.workingSchedule.findFirst({
     where: {
@@ -79,9 +84,6 @@ export async function POST(req: Request) {
   ) {
     return NextResponse.json({ error: "slot_unavailable" }, { status: 409 });
   }
-
-  const deadlineAt = zonedTime(today, body.deadline, tz);
-  const minutesSpare = Math.round((deadlineAt.getTime() - endsAt.getTime()) / 60000);
 
   let appointment;
   try {

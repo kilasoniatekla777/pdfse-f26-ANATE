@@ -48,6 +48,7 @@ export function BookingFlow(props: {
   const [phone, setPhone] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [deadlineExceeded, setDeadlineExceeded] = useState(false);
   const [booked, setBooked] = useState<Booked | null>(null);
 
   const customerId = () => posthog.get_distinct_id?.();
@@ -110,6 +111,7 @@ export function BookingFlow(props: {
     if (!service || !slot) return;
     setBusy(true);
     setError(null);
+    setDeadlineExceeded(false);
     const res = await fetch("/api/bookings", {
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -118,7 +120,10 @@ export function BookingFlow(props: {
     setBusy(false);
     if (!res.ok) {
       const { error: code } = (await res.json().catch(() => ({}))) as { error?: string };
-      setError(code === "missing_details" ? t("errorDetails") : t("errorTaken"));
+      setDeadlineExceeded(code === "deadline_exceeded");
+      setError(
+        code === "deadline_exceeded" ? t("errorDeadline") : code === "missing_details" ? t("errorDetails") : t("errorTaken"),
+      );
       return;
     }
     const data = await res.json();
@@ -215,16 +220,30 @@ export function BookingFlow(props: {
         <p className="type-body-s text-ink-600">
           {service.name} · {duration(service.durationMinutes)} · {t("leaveAt", { time: deadline })}
         </p>
-        {options.length === 0 && <p className="type-body text-ink-700">{t("noTimes")}</p>}
+        {!options.some((o) => o.fits) && (
+          <div className="flex flex-col gap-2">
+            <p className="type-body text-ink-700">{t(options.length === 0 ? "noTimes" : "noTimesBeforeDeadline")}</p>
+            <Button variant="secondary" size="lg" isFullWidth onClick={() => setStep("deadline")}>
+              {t("changeDeadline")}
+            </Button>
+            <Button variant="secondary" size="lg" isFullWidth onClick={() => setStep("service")}>
+              {t("changeService")}
+            </Button>
+          </div>
+        )}
         {options.map((o) => (
           <button
             key={o.startsAt}
             type="button"
+            disabled={!o.fits}
+            aria-disabled={!o.fits}
             onClick={() => {
+              if (!o.fits) return;
               setSlot(o);
+              setError(null);
               setStep("details");
             }}
-            className="flex items-center justify-between gap-3 rounded-card border border-border-strong bg-surface-1 p-(--space-card-mobile) text-left"
+            className="flex items-center justify-between gap-3 rounded-card border border-border-strong bg-surface-1 p-(--space-card-mobile) text-left disabled:cursor-not-allowed disabled:opacity-60"
           >
             <span className="flex flex-col">
               <span className="type-body-l text-ink-900">
@@ -274,6 +293,11 @@ export function BookingFlow(props: {
           />
         </label>
         {error && <p className="type-body-s text-error-600">{error}</p>}
+        {deadlineExceeded && (
+          <Button variant="secondary" size="lg" isFullWidth onClick={() => setStep("times")}>
+            {t("backToTimes")}
+          </Button>
+        )}
         <Button variant="primary" size="lg" isFullWidth isLoading={busy} disabled={!name || !phone} onClick={book}>
           {t("book")}
         </Button>
